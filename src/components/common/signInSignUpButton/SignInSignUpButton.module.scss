@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 112px;
+  height: 47px;
+  color: #fff;
+  font-family: Inria Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  background-color: rgb(66, 107, 31);
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  margin-left: 30px;
+
+  &:hover {
+    background-color: rgb(57, 92, 27);
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  .linkContainer {
+    display: flex;
+    align-items: center;
+    .image {
+      width: 35px;
+      height: 35px;
+    }
+    .write {
+      color: rgba(0, 0, 0, 0.5);
+      font-family: Inria Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  &:hover {
+    background-color: rgb(211, 211, 211);
+  }
+}
