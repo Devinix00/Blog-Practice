@@ -9,7 +9,7 @@ function HeaderSection(): JSX.Element {
     <>
       <div className={styles.container}>
         <div>
-          <Logo />
+          <Logo type="header" />
         </div>
         <div className={styles.userContainer}>
           <PostLink props="write" />

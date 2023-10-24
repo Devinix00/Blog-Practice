@@ -1,7 +1,41 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
 .container {
-  margin-left: 30px;
-  .userLogo {
-    width: 35px;
-    height: 35px;
+  margin-left: 5px;
+
+  @include respond-above("md") {
+    margin-left: 15px;
+  }
+
+  @include respond-above("lg") {
+    margin-left: 20px;
+  }
+
+  @include respond-above("xl") {
+    margin-left: 25px;
+  }
+  .link {
+    display: flex;
+    align-items: center;
+
+    .userLogo {
+      width: 27.5px;
+      height: 27.5px;
+
+      @include respond-above("md") {
+        width: 36px;
+        height: 36px;
+      }
+      @include respond-above("lg") {
+        width: 44px;
+        height: 44px;
+      }
+
+      @include respond-above("xl") {
+        width: 47px;
+        height: 47px;
+      }
+    }
   }
 }

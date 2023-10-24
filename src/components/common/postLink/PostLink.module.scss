@@ -1,20 +1,53 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
 .container {
   .linkContainer {
     display: flex;
     align-items: center;
+
     .image {
-      width: 35px;
-      height: 35px;
+      width: 20px;
+      height: 20px;
+
+      @include respond-above("md") {
+        width: 27.5px;
+        height: 27.5px;
+      }
+
+      @include respond-above("lg") {
+        width: 30px;
+        height: 30px;
+      }
+
+      @include respond-above("xl") {
+        width: 35px;
+        height: 35px;
+      }
     }
+
     .write {
       color: rgba(0, 0, 0, 0.5);
       font-family: Inria Sans;
-      font-size: 24px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+
+      @include respond-above("md") {
+        font-size: 24px;
+      }
+
+      @include respond-above("lg") {
+        font-size: 27px;
+      }
+
+      @include respond-above("xl") {
+        font-size: 30px;
+      }
     }
   }
+
   &:hover {
     background-color: rgb(211, 211, 211);
   }

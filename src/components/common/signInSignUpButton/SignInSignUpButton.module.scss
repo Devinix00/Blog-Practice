@@ -1,19 +1,44 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 112px;
-  height: 47px;
+  width: 70px;
+  height: 26px;
   color: #fff;
   font-family: Inria Sans;
-  font-size: 24px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   background-color: rgb(66, 107, 31);
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  margin-left: 30px;
+  margin-left: 5px;
+
+  @include respond-above("md") {
+    width: 98px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 15px;
+    font-size: 16px;
+  }
+  @include respond-above("lg") {
+    width: 100px;
+    height: 40px;
+    border-radius: 11px;
+    margin-left: 20px;
+    font-size: 20px;
+  }
+  @include respond-above("xl") {
+    width: 112px;
+    height: 47px;
+    border-radius: 12px;
+    margin-left: 25px;
+    font-size: 24px;
+  }
 
   &:hover {
     background-color: rgb(57, 92, 27);

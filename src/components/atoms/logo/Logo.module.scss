@@ -1,7 +1,28 @@
-.logo {
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+@mixin logo {
   font-family: Inria Sans;
-  font-size: 40px;
   font-weight: 700;
   letter-spacing: 0em;
   color: rgba(66, 107, 31, 1);
+}
+
+.headerLogo {
+  @include logo();
+  font-size: 20px;
+
+  @include respond-above("md") {
+    font-size: 30px;
+  }
+  @include respond-above("lg") {
+    font-size: 35px;
+  }
+  @include respond-above("xl") {
+    font-size: 40px;
+  }
+}
+
+.footerLogo {
+  @include logo();
 }

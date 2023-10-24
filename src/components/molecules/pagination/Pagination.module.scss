@@ -1,0 +1,42 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  margin: 0 auto;
+  margin-top: 40px;
+
+  @include respond-above("xl") {
+    margin-top: 80px;
+    width: 100%;
+  }
+  .pagination {
+    display: flex;
+    gap: 6.25px;
+    margin: 0 auto;
+    justify-content: center;
+    @include respond-above("md") {
+      gap: 10px;
+    }
+    @include respond-above("lg") {
+      gap: 15px;
+    }
+    @include respond-above("xl") {
+      gap: 20px;
+    }
+
+    li {
+      &.active {
+        color: rgb(66, 107, 31);
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      .pageLink {
+        &.disabled {
+          pointer-events: none;
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

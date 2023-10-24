@@ -7,7 +7,7 @@ function UserButton(): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <Link href="/userPage">
+        <Link href="/userPage" className={styles.link}>
           <Image alt="userLogo" src={userLogo} className={styles.userLogo} />
         </Link>
       </div>
