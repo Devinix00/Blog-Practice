@@ -1,0 +1,17 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  display: flex;
+  gap: 6.25px;
+
+  @include respond-above("md") {
+    gap: 10px;
+  }
+  @include respond-above("lg") {
+    gap: 15px;
+  }
+  @include respond-above("xl") {
+    gap: 20px;
+  }
+}

@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import ContentContainer from "../contentContainer/ContentContainer";
-import styles from "./MainContent.module.scss";
-import Pagination from "@/components/molecules/pagination/Pagination";
+import styles from "./HomeMain.module.scss";
+import Pagination from "@/components/organisms/pagination/Pagination";
 import useDivideContent from "@/hooks/pagination/useDivideContent/useDivideContent";
 
-function MainContent(): JSX.Element {
+function HomeMain(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { currentContents } = useDivideContent({ currentPage, setCurrentPage });
+
   return (
     <>
       <div className={styles.container}>
@@ -22,4 +23,4 @@ function MainContent(): JSX.Element {
   );
 }
 
-export default MainContent;
+export default HomeMain;

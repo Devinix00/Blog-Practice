@@ -1,0 +1,24 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.likeImage {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+
+  @include respond-above("md") {
+    width: 30px;
+    height: 30px;
+  }
+  @include respond-above("lg") {
+    width: 35px;
+    height: 35px;
+  }
+  @include respond-above("xl") {
+    width: 40px;
+    height: 40px;
+  }
+}
+.number {
+  margin-left: 5px;
+}

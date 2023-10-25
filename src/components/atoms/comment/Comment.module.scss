@@ -1,0 +1,30 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  transform: translateX(125%);
+  display: flex;
+  align-items: center;
+
+  .commentImage {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    @include respond-above("md") {
+      width: 30px;
+      height: 30px;
+    }
+    @include respond-above("lg") {
+      width: 35px;
+      height: 35px;
+    }
+    @include respond-above("xl") {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  .number {
+    margin-left: 5px;
+  }
+}

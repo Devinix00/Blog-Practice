@@ -5,14 +5,63 @@
   border-bottom: 1px solid #c0c0c0;
   width: 100%;
   height: 150px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
 
   @include respond-above("md") {
     height: 180px;
+    margin-top: 17.5px;
   }
   @include respond-above("lg") {
     height: 220px;
+    margin-top: 20px;
   }
   @include respond-above("xl") {
     height: 270px;
+    margin-top: 24px;
+  }
+
+  .mainContentContainer {
+    width: 55%;
+    height: 95%;
+
+    @include respond-above("sm") {
+      width: 70%;
+    }
+    @include respond-above("md") {
+      width: 70%;
+    }
+    @include respond-above("lg") {
+      width: 70%;
+    }
+    @include respond-above("xl") {
+      width: 72.5%;
+    }
+    @media screen and (max-width: 300px) {
+      width: 45%;
+    }
+  }
+
+  .contentImageContainer {
+    background-color: #d9d9d9;
+    width: 40%;
+    height: 95%;
+
+    @include respond-above("sm") {
+      width: 25%;
+    }
+    @include respond-above("md") {
+      width: 25%;
+    }
+    @include respond-above("lg") {
+      width: 25%;
+    }
+    @include respond-above("xl") {
+      width: 25%;
+    }
+    @media screen and (max-width: 300px) {
+      width: 50%;
+    }
   }
 }

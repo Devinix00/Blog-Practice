@@ -1,0 +1,6 @@
+.pageLink {
+  &.disabled {
+    pointer-events: none;
+    color: #ccc;
+  }
+}

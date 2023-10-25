@@ -1,0 +1,24 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  width: 240px;
+  height: 37.5px;
+  display: flex;
+
+  @include respond-above("sm") {
+    height: 40px;
+  }
+  @include respond-above("lg") {
+    height: 50px;
+  }
+  @include respond-above("xl") {
+    height: 60px;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}

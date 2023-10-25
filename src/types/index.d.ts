@@ -1,7 +1,9 @@
 interface IContent {
   id: number;
   userName: string;
+  title: string;
   date: string;
+  content: string;
 }
 
 interface IPaginationProps {

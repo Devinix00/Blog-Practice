@@ -1,0 +1,12 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.copyright {
+  font-size: 14px;
+  @include respond-above("md") {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 378px) {
+    font-size: 10px;
+  }
+}

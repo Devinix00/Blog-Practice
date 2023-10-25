@@ -1,0 +1,17 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  @include respond-above("sm") {
+  }
+  @include respond-above("md") {
+  }
+  @include respond-above("lg") {
+  }
+  @include respond-above("xl") {
+  }
+}

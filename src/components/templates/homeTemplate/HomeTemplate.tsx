@@ -1,9 +1,9 @@
-import MainContent from "@/components/organisms/mainContent/MainContent";
+import HomeMain from "@/components/organisms/homeMain/HomeMain";
 
 function HomeTemplate(): JSX.Element {
   return (
     <>
-      <MainContent />
+      <HomeMain />
     </>
   );
 }
