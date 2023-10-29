@@ -5,7 +5,6 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
-  border-radius: 50%;
 
   @include respond-above("md") {
     width: 30px;
@@ -19,12 +18,7 @@
     width: 40px;
     height: 40px;
   }
-
-  &:hover {
-    filter: sepia(1) hue-rotate(-40deg) saturate(10);
-  }
 }
-
 .number {
   margin-left: 5px;
 }

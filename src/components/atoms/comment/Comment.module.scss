@@ -2,32 +2,14 @@
 @import "/src/styles/mixins";
 
 .container {
-  transform: translateX(80%);
+  transform: translateX(125%);
   display: flex;
   align-items: center;
-
-  @include respond-above("sm") {
-    transform: translateX(100%);
-  }
-  @include respond-above("md") {
-    transform: translateX(110%);
-  }
-  @include respond-above("lg") {
-    transform: translateX(120%);
-  }
-  @include respond-above("xl") {
-    transform: translateX(130%);
-  }
-  @media screen and (max-width: 300px) {
-    transform: translateX(55%);
-  }
 
   .commentImage {
     width: 25px;
     height: 25px;
-    border-radius: 50%;
     cursor: pointer;
-
     @include respond-above("md") {
       width: 30px;
       height: 30px;
@@ -41,7 +23,7 @@
       height: 40px;
     }
   }
-
+  
   .number {
     margin-left: 5px;
   }

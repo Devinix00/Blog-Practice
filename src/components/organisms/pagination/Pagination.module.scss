@@ -2,15 +2,13 @@
 @import "/src/styles/mixins";
 
 .container {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+  margin: 0 auto;
+  margin-top: 40px;
 
   @include respond-above("xl") {
+    margin-top: 80px;
     width: 100%;
   }
-  
   .pagination {
     display: flex;
     gap: 6.25px;
