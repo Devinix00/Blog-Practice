@@ -4,7 +4,9 @@ import Image from "next/image";
 function ContentImage(): JSX.Element {
   return (
     <>
-      <div>{/* <Image alt="content image" src={""} /> */}</div>
+      <div className={styles.container}>
+        {/* <Image alt="content image" src={""} /> */}
+      </div>
     </>
   );
 }

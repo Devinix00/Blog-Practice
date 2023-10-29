@@ -1,10 +1,21 @@
 import styles from "./UserImage.module.scss";
 import Image from "next/image";
 
-function UserImage(): JSX.Element {
+interface IProps {
+  type: string;
+}
+
+function UserImage({ type }: IProps): JSX.Element {
+  let imageClass;
+  if (type === "mainPage") {
+    imageClass = styles.mainPageImage;
+  } else if (type === "userPage") {
+    imageClass = styles.userPageImage;
+  }
+
   return (
     <>
-      <div className={styles.container}>
+      <div className={imageClass}>
         {/* <Image alt="user image" src={""}></Image> */}
       </div>
     </>

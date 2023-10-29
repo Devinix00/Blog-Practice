@@ -8,7 +8,12 @@ import useDivideContent from "@/hooks/pagination/useDivideContent/useDivideConte
 
 function HomeMain(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const { currentContents } = useDivideContent({ currentPage, setCurrentPage });
+  const contentsPerPage = 3;
+  const { currentContents } = useDivideContent({
+    contentsPerPage,
+    currentPage,
+    setCurrentPage,
+  });
 
   return (
     <>

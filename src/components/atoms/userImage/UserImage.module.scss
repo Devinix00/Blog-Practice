@@ -1,12 +1,13 @@
 @import "/src/styles/variables";
 @import "/src/styles/mixins";
 
-.container {
+.mainPageImage {
   width: 37.5px;
   height: 37.5px;
   background-color: rgb(217, 217, 217);
-  border-radius: 100%;
+  border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
 
   @include respond-above("sm") {
     width: 40px;
@@ -23,5 +24,26 @@
   @include respond-above("xl") {
     width: 60px;
     height: 60px;
+  }
+}
+
+.userPageImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgb(217, 217, 217);
+
+  @include respond-above("md") {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+  @include respond-above("lg") {
+    width: 130px;
+    height: 130px;
+  }
+  @include respond-above("xl") {
+    width: 160px;
+    height: 160px;
   }
 }

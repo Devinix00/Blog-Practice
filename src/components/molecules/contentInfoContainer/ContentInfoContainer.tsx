@@ -11,7 +11,7 @@ function ContentInfoContainer({ content }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <UserImage />
+        <UserImage type="mainPage" />
         <div className={styles.infoContainer}>
           <UserName content={content} />
           <CreatedDate content={content} />
