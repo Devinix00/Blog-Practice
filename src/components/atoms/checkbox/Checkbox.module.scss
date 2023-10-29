@@ -1,0 +1,20 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+
+  @include respond-above("md") {
+    width: 25px;
+    height: 25px;
+  }
+  @include respond-above("lg") {
+    width: 30px;
+    height: 30px;
+  }
+  @include respond-above("xl") {
+    width: 40px;
+    height: 40px;
+  }
+}

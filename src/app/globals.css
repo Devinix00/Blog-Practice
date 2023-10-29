@@ -107,5 +107,13 @@ ul {
 }
 
 .mainContainer {
+  position: relative;
   flex: 1 0 auto;
+  padding-bottom: 60px;
+}
+
+@media screen and (min-width: 1200px) {
+  .mainContainer {
+    padding-bottom: 100px;
+  }
 }

@@ -1,0 +1,64 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+
+  .userImageContainer {
+    flex-shrink: 0;
+    width: 80px;
+    height: 100%;
+    display: none;
+
+    @include respond-above("md") {
+      display: block;
+      width: 140px;
+    }
+    @include respond-above("lg") {
+      width: 180px;
+    }
+    @include respond-above("xl") {
+      width: 240px;
+    }
+
+    .userImageAndName {
+      width: 60px;
+      height: 60px;
+
+      @include respond-above("md") {
+        width: 100px;
+        height: 100px;
+      }
+      @include respond-above("lg") {
+        width: 130px;
+        height: 130px;
+      }
+      @include respond-above("xl") {
+        width: 160px;
+        height: 160px;
+      }
+
+      .userNameContainer {
+        width: 100%;
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  .userContentsContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include respond-above("md") {
+  }
+  @include respond-above("lg") {
+  }
+  @include respond-above("xl") {
+    width: 1200px;
+  }
+}
