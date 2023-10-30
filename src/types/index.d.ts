@@ -9,4 +9,5 @@ interface IContent {
 interface IPaginationProps {
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
+  setIsCheckedAll?: React.Dispatch<React.SetStateAction<number[]>>;
 }

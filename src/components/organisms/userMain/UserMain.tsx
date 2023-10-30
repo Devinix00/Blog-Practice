@@ -10,6 +10,7 @@ import useDivideContent from "@/hooks/pagination/useDivideContent/useDivideConte
 
 function UserMain(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isCheckedAll, setIsCheckedAll] = useState<number[]>([]);
   const contentsPerPage = 6;
 
   const { currentContents } = useDivideContent({
@@ -17,6 +18,7 @@ function UserMain(): JSX.Element {
     currentPage,
     setCurrentPage,
   });
+
   const content = {
     id: 1,
     userName: "김범수",
@@ -37,10 +39,14 @@ function UserMain(): JSX.Element {
           </div>
         </div>
         <div className={styles.userContentsContainer}>
-          <UserContentsContainer currentContents={currentContents} />
+          <UserContentsContainer
+            currentContents={currentContents}
+            isCheckedAll={isCheckedAll}
+            setIsCheckedAll={setIsCheckedAll}
+          />
         </div>
       </div>
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} setIsCheckedAll={setIsCheckedAll}/>
     </>
   );
 }

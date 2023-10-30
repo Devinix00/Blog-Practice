@@ -5,14 +5,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 interface IProps {
   content: IContent;
+  checked: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function UserContent({ content }: IProps): JSX.Element {
+function UserContent({ content, checked, onChange }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.checkboxContainer}>
-          <Checkbox />
+          <Checkbox checked={checked} onChange={onChange}/>
         </div>
         <div className={styles.contentContainer}>
           <div className={styles.title}>{content.title}</div>

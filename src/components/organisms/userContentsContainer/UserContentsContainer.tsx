@@ -1,21 +1,55 @@
+"use client";
+
 import PostManagement from "@/components/molecules/postManagement/PostManagement";
 import styles from "./UserContentsContainer.module.scss";
 import UserContent from "@/components/molecules/userContent/UserContent";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import AllCheckbox from "@/components/atoms/allCheckbox/AllCheckbox";
+import useCheckAll from "@/hooks/useCheckAll/useCheckAll";
 
 interface IProps {
   currentContents: IContent[];
+  isCheckedAll: number[];
+  setIsCheckedAll: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-function UserContentsContainer({ currentContents }: IProps): JSX.Element {
+function UserContentsContainer({
+  isCheckedAll,
+  setIsCheckedAll,
+  currentContents,
+}: IProps): JSX.Element {
+  const { handleAllCheck, handleSingleCheck } = useCheckAll({
+    isCheckedAll,
+    setIsCheckedAll,
+    currentContents,
+  });
+
   return (
     <>
       <div className={styles.container}>
         <PostManagement />
+        <div className={styles.allCheckboxContainer}>
+          <AllCheckbox
+            checked={
+              isCheckedAll.length === currentContents.length ? true : false
+            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleAllCheck(e.target.checked)
+            }
+          />
+          <div className={styles.text}>전체 선택</div>
+        </div>
         <div className={styles.userContents}>
           {currentContents?.map((content: IContent) => (
-            <UserContent key={content.id} content={content} />
+            <UserContent
+              key={content.id}
+              content={content}
+              checked={isCheckedAll.includes(content.id) ? true : false}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleSingleCheck(e.target.checked, content.id)
+              }
+            />
           ))}
         </div>
         <Button

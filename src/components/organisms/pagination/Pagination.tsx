@@ -4,14 +4,18 @@ import styles from "./Pagination.module.scss";
 import PageLink from "@/components/atoms/pageLink/PageLink";
 import PageList from "@/components/molecules/pageList/PageList";
 
-function Pagination({ currentPage, setCurrentPage }: IPaginationProps) {
+function Pagination({
+  currentPage,
+  setCurrentPage,
+  setIsCheckedAll,
+}: IPaginationProps) {
   const {
     handleClick,
     goToFirstPage,
     goToLastPage,
     visiblePageNumbers,
     maxPageNum,
-  } = usePagination({ currentPage, setCurrentPage });
+  } = usePagination({ currentPage, setCurrentPage, setIsCheckedAll });
 
   return (
     <nav className={styles.container}>

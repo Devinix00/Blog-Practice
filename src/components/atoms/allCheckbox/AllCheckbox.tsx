@@ -1,16 +1,16 @@
-import styles from "./Checkbox.module.scss";
+import styles from "./AllCheckbox.module.scss";
 
 interface IProps {
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Checkbox({ checked, onChange }: IProps): JSX.Element {
+function AllCheckbox({ checked, onChange }: IProps): JSX.Element {
   return (
     <>
       <input
         type="checkbox"
-        className={styles.checkbox}
+        className={styles.allCheckbox}
         checked={checked}
         onChange={onChange}
       />
@@ -18,4 +18,4 @@ function Checkbox({ checked, onChange }: IProps): JSX.Element {
   );
 }
 
-export default Checkbox;
+export default AllCheckbox;

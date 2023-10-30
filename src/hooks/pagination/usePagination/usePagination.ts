@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import useDivideContent from "../useDivideContent/useDivideContent";
 
@@ -16,6 +14,7 @@ interface IUsePagination {
 function usePagination({
   currentPage,
   setCurrentPage,
+  setIsCheckedAll,
 }: IPaginationProps): IUsePagination {
   const { handlePaginate, totalContents, contentsPerPage } = useDivideContent({
     currentPage,
@@ -48,18 +47,27 @@ function usePagination({
     setCurrentPage(number);
     setCurrentNumbers(updatePageNumbers(number));
     handlePaginate(number);
+    if (setIsCheckedAll) {
+      setIsCheckedAll([]);
+    }
   };
 
   const goToFirstPage = (event: React.MouseEvent): void => {
     event.preventDefault();
     setCurrentPage(1);
     handlePaginate(1);
+    if (setIsCheckedAll) {
+      setIsCheckedAll([]);
+    }
   };
 
   const goToLastPage = (event: React.MouseEvent): void => {
     event.preventDefault();
     setCurrentPage(maxPageNum);
     handlePaginate(maxPageNum);
+    if (setIsCheckedAll) {
+      setIsCheckedAll([]);
+    }
   };
 
   return {
