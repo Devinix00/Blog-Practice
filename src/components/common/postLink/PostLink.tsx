@@ -14,11 +14,11 @@ function PostLink({ props, type }: IProps): JSX.Element {
     postLinkClass = styles.headerContainer;
   } else if (type === "user") {
     postLinkClass = styles.userContainer;
-  }
+  } 
   return (
     <>
       <div className={postLinkClass}>
-        <Link href="/postPage" className={styles.linkContainer}>
+        <Link href="/createPostPage" className={styles.linkContainer}>
           <Image alt="postImage" src={postImage} className={styles.image} />
           <div className={styles.write}>{props}</div>
         </Link>

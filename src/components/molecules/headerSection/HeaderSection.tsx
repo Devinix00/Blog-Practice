@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
+  const excludedPaths = ["/userPage", "/createPostPage"];
 
   return (
     <>
@@ -17,7 +18,9 @@ function HeaderSection(): JSX.Element {
           <Logo type="header" />
         </div>
         <div className={styles.userContainer}>
-          {pathname !== "/userPage" && <PostLink props="write" type="header" />}
+          {!excludedPaths.includes(pathname) && (
+            <PostLink props="write" type="header" />
+          )}
           <SignInSignUpButton props="Sign Up" />
           <UserButton />
         </div>

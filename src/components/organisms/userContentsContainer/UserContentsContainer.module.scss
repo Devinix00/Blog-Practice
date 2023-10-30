@@ -43,16 +43,13 @@
     }
   }
 
-  .userContents {
-    // margin-top: 20px;
-  }
 
   .deleteButton {
-    margin-top: 40px;
+    margin-top: 20px;
     width: 100px;
 
     @include respond-above("xl") {
-      margin-top: 80px;
+      margin-top: 40px;
       width: 125px;
     }
   }
