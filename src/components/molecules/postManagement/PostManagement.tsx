@@ -1,4 +1,4 @@
-import PostLink from "@/components/common/postLink/PostLink";
+import PostLink from "../postLink/PostLink";
 import styles from "./PostManagement.module.scss";
 
 function PostManagement(): JSX.Element {
