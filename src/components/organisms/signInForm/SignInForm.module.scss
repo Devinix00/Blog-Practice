@@ -1,0 +1,30 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.signUpContainer {
+  width: 100%;
+  max-width: 80%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+
+  @include respond-above("sm") {
+    max-width: 500px;
+  }
+
+  .title {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+
+    @include respond-above("sm") {
+      font-size: 24px;
+    }
+    @include respond-above("xl") {
+      font-size: 24px;
+    }
+  }
+}

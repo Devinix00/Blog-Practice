@@ -8,7 +8,7 @@ interface IProps {
 function SignInSignUpButton({ props }: IProps): JSX.Element {
   return (
     <>
-      <Link href="signUpPage" className={styles.link}>
+      <Link href="signInPage" className={styles.link}>
         {props}
       </Link>
     </>

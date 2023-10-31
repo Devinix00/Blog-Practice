@@ -1,12 +1,12 @@
 import SignButton from "@/components/atoms/signButton/SignButton";
-import styles from "./SignUpForm.module.scss";
+import styles from "./SignInForm.module.scss";
 import SignInputGroup from "@/components/molecules/signInputGroup/SignInputGroup";
 
-function SignUpForm(): JSX.Element {
+function SignInForm(): JSX.Element {
   return (
     <>
       <form className={styles.signUpContainer}>
-        <h2 className={styles.title}>회원가입</h2>
+        <h2 className={styles.title}>로그인</h2>
         <SignInputGroup
           type="text"
           id="loginId"
@@ -23,18 +23,10 @@ function SignUpForm(): JSX.Element {
           placeholder="비밀번호를 입력해주세요..."
           required
         />
-        <SignInputGroup
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-          labelText="비밀번호 확인"
-          placeholder="비밀번호를 다시 입력해주세요..."
-          required
-        />
-        <SignButton type="submit">가입하기</SignButton>
+        <SignButton type="submit">로그인</SignButton>
       </form>
     </>
   );
 }
 
-export default SignUpForm;
+export default SignInForm;
