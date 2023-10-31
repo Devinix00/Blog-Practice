@@ -23,5 +23,51 @@
   .userContainer {
     display: flex;
     align-items: center;
+
+    .signUpContainer {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      margin-left: 5px;
+
+      @include respond-above("md") {
+        width: 56px;
+        height: 35px;
+        margin-left: 15px;
+      }
+      @include respond-above("lg") {
+        width: 64px;
+        height: 40px;
+        margin-left: 20px;
+      }
+      @include respond-above("xl") {
+        width: 72px;
+        height: 47px;
+        margin-left: 25px;
+      }
+
+      .link {
+        position: absolute;
+        bottom: 0;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: sans-serif;
+        color: rgba(0, 0, 0, 0.5);
+
+        @include respond-above("md") {
+          font-size: 14px;
+        }
+        @include respond-above("lg") {
+          font-size: 16px;
+        }
+        @include respond-above("xl") {
+          font-size: 18px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }

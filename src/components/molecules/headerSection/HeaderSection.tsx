@@ -6,6 +6,7 @@ import UserButton from "@/components/atoms/userButton/UserButton";
 import { usePathname } from "next/navigation";
 import PostLink from "../postLink/PostLink";
 import SignInSignUpButton from "@/components/atoms/signInSignUpButton/SignInSignUpButton";
+import Link from "next/link";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
@@ -21,7 +22,13 @@ function HeaderSection(): JSX.Element {
           {!excludedPaths.includes(pathname) && (
             <PostLink props="write" type="header" />
           )}
-          <SignInSignUpButton props="Sign Up" />
+          <SignInSignUpButton props="Sign In" />
+          {/* <SignInSignUpButton props="Sign Up" /> */}
+          <div className={styles.signUpContainer}>
+            <Link href="signUpPage" className={styles.link}>
+              회원가입
+            </Link>
+          </div>
           <UserButton />
         </div>
       </div>

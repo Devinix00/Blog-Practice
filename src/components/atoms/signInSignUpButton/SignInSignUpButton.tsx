@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./SignInSignUpButton.module.scss";
 
 interface IProps {
@@ -7,7 +8,9 @@ interface IProps {
 function SignInSignUpButton({ props }: IProps): JSX.Element {
   return (
     <>
-      <button className={styles.button}>{props}</button>
+      <Link href="signUpPage" className={styles.link}>
+        {props}
+      </Link>
     </>
   );
 }
