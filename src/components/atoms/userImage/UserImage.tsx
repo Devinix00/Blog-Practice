@@ -11,6 +11,8 @@ function UserImage({ type }: IProps): JSX.Element {
     imageClass = styles.mainPageImage;
   } else if (type === "userPage") {
     imageClass = styles.userPageImage;
+  } else if (type === "postPage") {
+    imageClass = styles.postPageImage;
   }
 
   return (

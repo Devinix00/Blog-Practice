@@ -47,3 +47,26 @@
     height: 160px;
   }
 }
+
+.postPageImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(217, 217, 217);
+  flex-shrink: 0;
+  display: none;
+
+  @include respond-above("md") {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+  @include respond-above("lg") {
+    width: 54px;
+    height: 54px;
+  }
+  @include respond-above("xl") {
+    width: 60px;
+    height: 60px;
+  }
+}

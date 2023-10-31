@@ -1,0 +1,11 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+
+  @include respond-above("xl") {
+    width: 1200px;
+  }
+}
