@@ -11,3 +11,9 @@ interface IPaginationProps {
   setCurrentPage: (currentPage: number) => void;
   setIsCheckedAll?: React.Dispatch<React.SetStateAction<number[]>>;
 }
+
+interface ISignUpForm {
+  id: string;
+  password: string;
+  createdAt: string;
+}

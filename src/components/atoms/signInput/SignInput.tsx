@@ -7,6 +7,8 @@ interface IProps {
   name: string;
   placeholder: string;
   required?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SignInput = ({
@@ -15,6 +17,8 @@ const SignInput = ({
   name,
   placeholder,
   required,
+  value,
+  onChange,
 }: IProps): JSX.Element => {
   return (
     <input
@@ -24,6 +28,8 @@ const SignInput = ({
       placeholder={placeholder}
       className={styles.input}
       required={required}
+      value={value}
+      onChange={onChange}
     />
   );
 };

@@ -10,6 +10,8 @@ interface IProps {
   labelText: string;
   placeholder: string;
   required?: boolean;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SignInputGroup = ({
@@ -19,6 +21,8 @@ const SignInputGroup = ({
   labelText,
   placeholder,
   required,
+  value,
+  onChange,
 }: IProps): JSX.Element => {
   return (
     <div className={styles.inputGroup}>
@@ -28,6 +32,8 @@ const SignInputGroup = ({
         id={id}
         name={name}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         required={required}
       />
     </div>
