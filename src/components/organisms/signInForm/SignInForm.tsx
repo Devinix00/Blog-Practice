@@ -7,7 +7,7 @@ function SignInForm(): JSX.Element {
     <>
       <form className={styles.signUpContainer}>
         <h2 className={styles.title}>로그인</h2>
-        {/* <SignInputGroup
+        <SignInputGroup
           type="text"
           id="loginId"
           name="loginId"
@@ -22,7 +22,7 @@ function SignInForm(): JSX.Element {
           labelText="비밀번호"
           placeholder="비밀번호를 입력해주세요..."
           required
-        /> */}
+        />
         <SignButton type="submit">로그인</SignButton>
       </form>
     </>

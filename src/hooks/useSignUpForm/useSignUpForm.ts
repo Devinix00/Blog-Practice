@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 interface IProps {
@@ -22,6 +23,7 @@ const useSignUpForm = ({
   setInputValues,
 }: IProps): IUseSignUpForm => {
   const [confirmMessage, setConfirmMessage] = useState<string>("");
+  const router = useRouter();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -42,7 +44,7 @@ const useSignUpForm = ({
     }
   }, [inputValues.password, inputValues.confirmPassword]);
 
-  const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (inputValues.password !== inputValues.confirmPassword) {
@@ -50,37 +52,39 @@ const useSignUpForm = ({
       return;
     }
 
-    if (window.confirm("회원가입 하시겠습니까?")) {
-      alert("회원가입 되었습니다.");
-    } else {
-      alert("취소합니다.");
-      return;
-    }
+    alert("회원가입 하시겠습니까?");
 
-    fetch(
-      "https://port-0-portfolio-blog-12fhqa2llo6r1gkk.sel5.cloudtype.app/api/user/join",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: inputValues.id,
-          password: inputValues.password,
-        }),
-        cache: "force-cache",
-      }
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+    try {
+      const response = await fetch(
+        "https://port-0-portfolio-blog-12fhqa2llo6r1gkk.sel5.cloudtype.app/api/user/join",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: inputValues.id,
+            password: inputValues.password,
+          }),
         }
-        return response.json();
-      })
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error));
+      );
 
-    setInputValues({ id: "", password: "", confirmPassword: "" });
+      if (response.status === 409) {
+        alert("아이디가 중복되었습니다.");
+        return;
+      }
+
+      if (response.ok) {
+        alert("회원가입이 완료되었습니다.");
+        setInputValues({ id: "", password: "", confirmPassword: "" });
+        router.push("signInPage");
+        return await response.text();
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
   };
 
   return {
