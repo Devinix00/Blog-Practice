@@ -45,10 +45,6 @@ const useSignUpForm = ({
   const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("id", inputValues.id);
-    formData.append("password", inputValues.password);
-
     if (inputValues.password !== inputValues.confirmPassword) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
@@ -66,9 +62,12 @@ const useSignUpForm = ({
       {
         method: "POST",
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
-        body: formData,
+        body: JSON.stringify({
+          email: inputValues.id,
+          password: inputValues.password,
+        }),
         cache: "force-cache",
       }
     )
@@ -79,7 +78,7 @@ const useSignUpForm = ({
         return response.json();
       })
       .then((result) => console.log(result))
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => console.error(error));
 
     setInputValues({ id: "", password: "", confirmPassword: "" });
   };
