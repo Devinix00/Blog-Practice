@@ -7,7 +7,7 @@ interface IProps {
 }
 
 interface IInputValues {
-  id: string;
+  email: string;
   password: string;
   confirmPassword: string;
 }
@@ -63,7 +63,7 @@ const useSignUpForm = ({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: inputValues.id,
+            email: inputValues.email,
             password: inputValues.password,
           }),
         }
@@ -74,11 +74,13 @@ const useSignUpForm = ({
         return;
       }
 
+      const data = await response.text();
+
       if (response.ok) {
         alert("회원가입이 완료되었습니다.");
-        setInputValues({ id: "", password: "", confirmPassword: "" });
-        router.push("signInPage");
-        return await response.text();
+        setInputValues({ email: "", password: "", confirmPassword: "" });
+        router.push("/signInPage");
+        return data;
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

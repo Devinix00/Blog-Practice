@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./SignInput.module.scss";
+import useInputFocus from "@/hooks/useInputFocus/useInputFocus";
 
 interface IProps {
+  inputType?: string;
   type: string;
   id: string;
   name: string;
@@ -12,6 +14,7 @@ interface IProps {
 }
 
 const SignInput = ({
+  inputType,
   type,
   id,
   name,
@@ -20,8 +23,11 @@ const SignInput = ({
   value,
   onChange,
 }: IProps): JSX.Element => {
+  const { inputRef } = useInputFocus(inputType);
+
   return (
     <input
+      ref={inputRef}
       type={type}
       id={id}
       name={name}

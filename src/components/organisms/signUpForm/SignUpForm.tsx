@@ -7,14 +7,14 @@ import { useState } from "react";
 import useSignUpForm from "@/hooks/useSignUpForm/useSignUpForm";
 
 interface IInputValues {
-  id: string;
+  email: string;
   password: string;
   confirmPassword: string;
 }
 
 function SignUpForm(): JSX.Element {
   const [inputValues, setInputValues] = useState<IInputValues>({
-    id: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });
@@ -28,12 +28,13 @@ function SignUpForm(): JSX.Element {
       <form onSubmit={handleSignUp} className={styles.signUpContainer}>
         <h2 className={styles.title}>회원가입</h2>
         <SignInputGroup
-          type="text"
-          id="id"
-          name="id"
-          labelText="아이디"
-          placeholder="아이디를 입력해주세요..."
-          value={inputValues.id}
+          inputType="first"
+          type="email"
+          id="email"
+          name="email"
+          labelText="이메일"
+          placeholder="이메일을 입력해주세요..."
+          value={inputValues.email}
           onChange={onChange}
           required
         />

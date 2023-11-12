@@ -5,12 +5,15 @@ import styles from "./HeaderSection.module.scss";
 import UserButton from "@/components/atoms/userButton/UserButton";
 import { usePathname } from "next/navigation";
 import PostLink from "../postLink/PostLink";
-import SignInSignUpButton from "@/components/atoms/signInSignUpButton/SignInSignUpButton";
 import Link from "next/link";
+import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
+import { useRouter } from "next/navigation";
+import useRenderHeader from "@/hooks/useRenderHeader/useRenderHeader";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
   const excludedPaths = ["/userPage", "/createPostPage"];
+  const { accessToken, handleSignOut } = useRenderHeader();
 
   return (
     <>
@@ -19,17 +22,24 @@ function HeaderSection(): JSX.Element {
           <Logo type="header" />
         </div>
         <div className={styles.userContainer}>
-          {!excludedPaths.includes(pathname) && (
+          {!excludedPaths.includes(pathname) && accessToken && (
             <PostLink props="write" type="header" />
           )}
-          <SignInSignUpButton props="Sign In" />
-          {/* <SignInSignUpButton props="Sign Up" /> */}
-          <div className={styles.signUpContainer}>
-            <Link href="signUpPage" className={styles.link}>
-              회원가입
-            </Link>
-          </div>
-          <UserButton />
+          {!accessToken && (
+            <div className={styles.signUpContainer}>
+              <Link href="signUpPage" className={styles.link}>
+                회원가입
+              </Link>
+            </div>
+          )}
+          {!accessToken && <SignInSignOutButton type="Sign In" />}
+          {accessToken && (
+            <SignInSignOutButton
+              type="Sign Out"
+              onClick={() => handleSignOut()}
+            />
+          )}
+          {accessToken && <UserButton />}
         </div>
       </div>
     </>

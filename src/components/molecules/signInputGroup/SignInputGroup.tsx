@@ -4,6 +4,7 @@ import SignLabel from "@/components/atoms/signLabel/SignLabel";
 import SignInput from "@/components/atoms/signInput/SignInput";
 
 interface IProps {
+  inputType?: string;
   type: string;
   id: string;
   name: string;
@@ -15,6 +16,7 @@ interface IProps {
 }
 
 const SignInputGroup = ({
+  inputType,
   type,
   id,
   name,
@@ -28,6 +30,7 @@ const SignInputGroup = ({
     <div className={styles.inputGroup}>
       <SignLabel htmlFor={id}>{labelText}</SignLabel>
       <SignInput
+        inputType={inputType}
         type={type}
         id={id}
         name={name}
