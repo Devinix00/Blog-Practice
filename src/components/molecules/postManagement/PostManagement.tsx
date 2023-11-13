@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PostLink from "../postLink/PostLink";
 import styles from "./PostManagement.module.scss";
 

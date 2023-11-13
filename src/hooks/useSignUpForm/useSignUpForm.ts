@@ -56,7 +56,7 @@ const useSignUpForm = ({
 
     try {
       const response = await fetch(
-        "https://port-0-portfolio-blog-12fhqa2llo6r1gkk.sel5.cloudtype.app/api/user/join",
+        process.env.NEXT_PUBLIC_API_BASE_URL + "/user/join",
         {
           method: "POST",
           headers: {

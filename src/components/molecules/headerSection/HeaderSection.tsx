@@ -3,17 +3,24 @@
 import Logo from "@/components/atoms/logo/Logo";
 import styles from "./HeaderSection.module.scss";
 import UserButton from "@/components/atoms/userButton/UserButton";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import PostLink from "../postLink/PostLink";
 import Link from "next/link";
 import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
-import { useRouter } from "next/navigation";
 import useRenderHeader from "@/hooks/useRenderHeader/useRenderHeader";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
+  const router = useRouter();
   const excludedPaths = ["/userPage", "/createPostPage"];
   const { accessToken, handleSignOut } = useRenderHeader();
+
+  if (!accessToken) {
+    const protectedRoutes = ["/userPage", "/createPostPage", "/updateUserPage"];
+    if (protectedRoutes.includes(pathname)) {
+      router.replace("/");
+    }
+  }
 
   return (
     <>
@@ -26,11 +33,14 @@ function HeaderSection(): JSX.Element {
             <PostLink props="write" type="header" />
           )}
           {!accessToken && (
-            <div className={styles.signUpContainer}>
-              <Link href="signUpPage" className={styles.link}>
-                회원가입
-              </Link>
-            </div>
+            <Link href="signUpPage" className={styles.signUpLink}>
+              회원가입
+            </Link>
+          )}
+          {accessToken && pathname === "/userPage" && (
+            <Link href="/updateUserPage" className={styles.updateUserLink}>
+              회원 수정
+            </Link>
           )}
           {!accessToken && <SignInSignOutButton type="Sign In" />}
           {accessToken && (
@@ -39,7 +49,7 @@ function HeaderSection(): JSX.Element {
               onClick={() => handleSignOut()}
             />
           )}
-          {accessToken && <UserButton />}
+          {accessToken && pathname !== "/userPage" && <UserButton />}
         </div>
       </div>
     </>

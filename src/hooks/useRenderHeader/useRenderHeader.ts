@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 interface IUseRenderHeader {
   accessToken: string | null;
@@ -19,7 +20,7 @@ function useRenderHeader(): IUseRenderHeader {
     localStorage.removeItem("accessToken");
     router.refresh();
   };
-  
+
   return { accessToken, handleSignOut };
 }
 
