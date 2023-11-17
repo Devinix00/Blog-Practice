@@ -1,12 +1,13 @@
 @import "/src/styles/variables";
 @import "/src/styles/mixins";
 
-.userName {
-  width: fit-content;
-  font-size: 10px;
+.labelText {
+  font-size: 600;
+  font-family: sans-serif;
+  font-size: 12px;
 
   @include respond-above("sm") {
-    font-size: 12px;
+    font-size: 13px;
   }
   @include respond-above("md") {
     font-size: 14px;
@@ -16,16 +17,5 @@
   }
   @include respond-above("xl") {
     font-size: 16px;
-  }
-
-  &.updateUser {
-    font-size: 14px;
-
-    @include respond-above("lg") {
-      font-size: 15px;
-    }
-    @include respond-above("xl") {
-      font-size: 16px;
-    }
   }
 }

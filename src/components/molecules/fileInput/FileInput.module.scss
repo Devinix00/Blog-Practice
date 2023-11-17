@@ -1,0 +1,66 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+
+  @include respond-above("sm") {
+    gap: 12.5px;
+  }
+  @include respond-above("md") {
+    gap: 15px;
+  }
+  @include respond-above("lg") {
+    gap: 17.5px;
+  }
+  @include respond-above("xl") {
+    gap: 20px;
+  }
+
+  @mixin fileInput() {
+    padding: 8px 40px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+
+    @include respond-above("sm") {
+      font-size: 13px;
+    }
+    @include respond-above("md") {
+      font-size: 14px;
+    }
+    @include respond-above("lg") {
+      font-size: 15px;
+    }
+    @include respond-above("xl") {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 300px) {
+      padding: 8px 24px;
+    }
+  }
+  .fileInput {
+    @include fileInput();
+    background-color: #0079ff;
+
+    &:hover {
+      background-color: #0063d5;
+    }
+  }
+  .deleteFile {
+    @include fileInput();
+    background-color: rgb(246, 83, 83);
+
+    &:hover {
+      background-color: rgb(211, 65, 65);
+    }
+  }
+
+  .inputNone {
+    display: none;
+  }
+}

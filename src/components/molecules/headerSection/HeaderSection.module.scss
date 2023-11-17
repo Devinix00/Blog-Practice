@@ -46,46 +46,11 @@
     align-items: flex-end;
 
     .signUpLink {
-      // font-size: 12px;
-      // font-weight: 600;
-      // font-family: sans-serif;
-      // color: rgba(0, 0, 0, 0.5);
-
-      // @include respond-above("md") {
-      //   font-size: 14px;
-      // }
-      // @include respond-above("lg") {
-      //   font-size: 16px;
-      // }
-      // @include respond-above("xl") {
-      //   font-size: 18px;
-      // }
-
-      // &:hover {
-      //   text-decoration: underline;
-      // }
       @include commonLink();
     }
   }
+
   .updateUserLink {
     @include commonLink();
-    // color: rgba(0, 0, 0, 0.5);
-    // font-family: Inria Sans;
-    // font-size: 18px;
-    // font-style: normal;
-    // font-weight: 600;
-    // line-height: normal;
-    // font-size: 12px;
-    // text-decoration: underline;
-
-    // @include respond-above("md") {
-    //   font-size: 14px;
-    // }
-    // @include respond-above("lg") {
-    //   font-size: 16px;
-    // }
-    // @include respond-above("xl") {
-    //   font-size: 18px;
-    // }
   }
 }

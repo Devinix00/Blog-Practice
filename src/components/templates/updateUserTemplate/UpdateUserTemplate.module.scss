@@ -1,0 +1,18 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.container {
+  margin: 0 auto;
+
+  .userImageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .updateUserFormContainer {
+    display: flex;
+    justify-content: center;
+  }
+}

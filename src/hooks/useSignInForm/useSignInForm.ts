@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 interface IProps {
   inputValues: IInputValues;
@@ -49,17 +49,17 @@ const useSignInForm = ({
         }
       );
 
-      if (response.status === 404) {
+      const data = await response.text();
+
+      if (data === "EMAIL_NOT_FOUND  이메일은 존재하지 않습니다.") {
         alert("가입되지 않은 이메일입니다.");
         return;
       }
 
-      if (response.status === 401) {
+      if (data === "INVALID_PASSWORD 패스워드를 잘못 입력했습니다.") {
         alert("잘못된 비밀번호입니다.");
         return;
       }
-
-      const data = await response.text();
 
       if (response.ok) {
         setInputValues({ email: "", password: "" });

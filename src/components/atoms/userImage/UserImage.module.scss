@@ -2,12 +2,16 @@
 @import "/src/styles/mixins";
 
 .mainPageImage {
+  position: relative;
   width: 37.5px;
   height: 37.5px;
-  background-color: rgb(217, 217, 217);
   border-radius: 50%;
   margin-right: 10px;
   cursor: pointer;
+  background-color: rgb(217, 217, 217);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @include respond-above("sm") {
     width: 40px;
@@ -25,9 +29,19 @@
     width: 60px;
     height: 60px;
   }
+
+  .userLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+  }
 }
 
 .userPageImage {
+  position: relative;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -46,15 +60,25 @@
     width: 160px;
     height: 160px;
   }
+
+  .userLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+  }
 }
 
 .postPageImage {
+  position: relative;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(217, 217, 217);
   flex-shrink: 0;
   display: none;
+  background-color: rgb(217, 217, 217);
 
   @include respond-above("md") {
     display: block;
@@ -68,5 +92,84 @@
   @include respond-above("xl") {
     width: 60px;
     height: 60px;
+  }
+
+  .userLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.updateUserImage {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgb(217, 217, 217);
+
+  @include respond-above("sm") {
+    width: 160px;
+    height: 160px;
+  }
+  @include respond-above("md") {
+    width: 160px;
+    height: 160px;
+  }
+  @include respond-above("lg") {
+    width: 160px;
+    height: 160px;
+  }
+  @include respond-above("xl") {
+    width: 160px;
+    height: 160px;
+  }
+
+  @media screen and (max-width: 300px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  .userLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.headerImage {
+  position: relative;
+  border-radius: 50%;
+  background-color: rgb(217, 217, 217);
+  width: 27.5px;
+  height: 27.5px;
+
+  @include respond-above("md") {
+    width: 36px;
+    height: 36px;
+  }
+  @include respond-above("lg") {
+    width: 44px;
+    height: 44px;
+  }
+
+  @include respond-above("xl") {
+    width: 47px;
+    height: 47px;
+  }
+  
+  .userLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
   }
 }

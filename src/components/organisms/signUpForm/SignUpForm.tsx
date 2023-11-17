@@ -5,6 +5,7 @@ import styles from "./SignUpForm.module.scss";
 import SignInputGroup from "@/components/molecules/signInputGroup/SignInputGroup";
 import { useState } from "react";
 import useSignUpForm from "@/hooks/useSignUpForm/useSignUpForm";
+import ConfirmMessage from "@/components/atoms/confrimMessage/ConfrimMessage";
 
 interface IInputValues {
   email: string;
@@ -58,7 +59,8 @@ function SignUpForm(): JSX.Element {
           onChange={onChange}
           required
         />
-        <div className={styles.confirmMessage}>{confirmMessage}</div>
+        {/* <div className={styles.confirmMessage}>{confirmMessage}</div> */}
+        <ConfirmMessage confirmMessage={confirmMessage} />
         <SignButton type="submit">가입하기</SignButton>
       </form>
     </>

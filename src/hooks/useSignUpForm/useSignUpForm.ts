@@ -69,12 +69,12 @@ const useSignUpForm = ({
         }
       );
 
-      if (response.status === 409) {
+      const data = await response.text();
+
+      if (data === "EMAIL_DUPLICATED test@naver.com 이메일은 사용중입니다.") {
         alert("아이디가 중복되었습니다.");
         return;
       }
-
-      const data = await response.text();
 
       if (response.ok) {
         alert("회원가입이 완료되었습니다.");

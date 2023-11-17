@@ -1,23 +1,26 @@
 import styles from "./UserImage.module.scss";
 import Image from "next/image";
+import PersonIcon from "@mui/icons-material/Person";
 
 interface IProps {
   type: string;
 }
 
 function UserImage({ type }: IProps): JSX.Element {
-  let imageClass;
-  if (type === "mainPage") {
-    imageClass = styles.mainPageImage;
-  } else if (type === "userPage") {
-    imageClass = styles.userPageImage;
-  } else if (type === "postPage") {
-    imageClass = styles.postPageImage;
-  }
+  const imageClassMap: { [key: string]: string } = {
+    mainPage: styles.mainPageImage,
+    userPage: styles.userPageImage,
+    postPage: styles.postPageImage,
+    updateUserPage: styles.updateUserImage,
+    header: styles.headerImage,
+  };
+
+  const imageClass = imageClassMap[type];
 
   return (
     <>
       <div className={imageClass}>
+        <PersonIcon className={styles.userLogo} />
         {/* <Image alt="user image" src={""}></Image> */}
       </div>
     </>

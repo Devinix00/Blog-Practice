@@ -1,0 +1,32 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.updateButton {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  background-color: #0079ff;
+
+  @include respond-above("sm") {
+    font-size: 13px;
+  }
+  @include respond-above("md") {
+    font-size: 14px;
+  }
+  @include respond-above("lg") {
+    font-size: 15px;
+  }
+  @include respond-above("xl") {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: #0063d5;
+  }
+}

@@ -1,0 +1,13 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.confirmMessage {
+  font-family: sans-serif;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #494949;
+
+  @include respond-above("xl") {
+    font-size: 14px;
+  }
+}

@@ -7,6 +7,7 @@ import UserContentsContainer from "../userContentsContainer/UserContentsContaine
 import Pagination from "../pagination/Pagination";
 import { useState } from "react";
 import useDivideContent from "@/hooks/pagination/useDivideContent/useDivideContent";
+import UserImgName from "@/components/molecules/userImgName/UserImgName";
 
 function UserMain(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -19,25 +20,10 @@ function UserMain(): JSX.Element {
     setCurrentPage,
   });
 
-  const content = {
-    id: 1,
-    userName: "김범수",
-    title: "Next.Js 13",
-    date: "2023-10-30",
-    content: "",
-  };
-
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.userImageContainer}>
-          <div className={styles.userImageAndName}>
-            <UserImage type="userPage" />
-            <div className={styles.userNameContainer}>
-              <UserName content={content} />
-            </div>
-          </div>
-        </div>
+        <UserImgName type="userPage" />
         <div className={styles.userContentsContainer}>
           <UserContentsContainer
             currentContents={currentContents}
@@ -46,7 +32,11 @@ function UserMain(): JSX.Element {
           />
         </div>
       </div>
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} setIsCheckedAll={setIsCheckedAll}/>
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        setIsCheckedAll={setIsCheckedAll}
+      />
     </>
   );
 }
