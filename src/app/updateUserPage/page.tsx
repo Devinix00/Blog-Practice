@@ -1,5 +1,4 @@
-import styles from "./page.module.css";
-
+import styles from "./page.module.scss";
 import Footer from "@/components/organisms/footer/Footer";
 import Header from "@/components/organisms/header/Header";
 import UpdateUserTemplate from "@/components/templates/updateUserTemplate/UpdateUserTemplate";

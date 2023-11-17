@@ -12,6 +12,7 @@ function UserImage({ type }: IProps): JSX.Element {
     userPage: styles.userPageImage,
     postPage: styles.postPageImage,
     updateUserPage: styles.updateUserImage,
+    signUpPage: styles.signUpPageImage,
     header: styles.headerImage,
   };
 

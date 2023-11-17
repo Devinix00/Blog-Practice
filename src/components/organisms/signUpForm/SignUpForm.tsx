@@ -6,8 +6,11 @@ import SignInputGroup from "@/components/molecules/signInputGroup/SignInputGroup
 import { useState } from "react";
 import useSignUpForm from "@/hooks/useSignUpForm/useSignUpForm";
 import ConfirmMessage from "@/components/atoms/confrimMessage/ConfrimMessage";
+import UserImage from "@/components/atoms/userImage/UserImage";
+import FileInput from "@/components/molecules/fileInput/FileInput";
 
 interface IInputValues {
+  nickName: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -15,6 +18,7 @@ interface IInputValues {
 
 function SignUpForm(): JSX.Element {
   const [inputValues, setInputValues] = useState<IInputValues>({
+    nickName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -28,8 +32,22 @@ function SignUpForm(): JSX.Element {
     <>
       <form onSubmit={handleSignUp} className={styles.signUpContainer}>
         <h2 className={styles.title}>회원가입</h2>
+        <div className={styles.userImageContainer}>
+          <UserImage type="signUpPage" />
+          <FileInput />
+        </div>
         <SignInputGroup
           inputType="first"
+          type="text"
+          id="nickName"
+          name="nickName"
+          labelText="닉네임"
+          placeholder="닉네임을 입력해주세요..."
+          value={inputValues.nickName}
+          onChange={onChange}
+          required
+        />
+        <SignInputGroup
           type="email"
           id="email"
           name="email"

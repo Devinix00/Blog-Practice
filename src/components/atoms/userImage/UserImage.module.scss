@@ -143,6 +143,45 @@
   }
 }
 
+.signUpPageImage {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgb(217, 217, 217);
+
+  @include respond-above("sm") {
+    width: 160px;
+    height: 160px;
+  }
+  @include respond-above("md") {
+    width: 160px;
+    height: 160px;
+  }
+  @include respond-above("lg") {
+    width: 160px;
+    height: 160px;
+  }
+  @include respond-above("xl") {
+    width: 160px;
+    height: 160px;
+  }
+
+  @media screen and (max-width: 300px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  .userLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+  }
+}
+
 .headerImage {
   position: relative;
   border-radius: 50%;
@@ -163,7 +202,7 @@
     width: 47px;
     height: 47px;
   }
-  
+
   .userLogo {
     position: absolute;
     left: 50%;

@@ -7,6 +7,7 @@ interface IProps {
 }
 
 interface IInputValues {
+  nickName: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -78,7 +79,12 @@ const useSignUpForm = ({
 
       if (response.ok) {
         alert("회원가입이 완료되었습니다.");
-        setInputValues({ email: "", password: "", confirmPassword: "" });
+        setInputValues({
+          nickName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
         router.push("/signInPage");
         return data;
       } else {
