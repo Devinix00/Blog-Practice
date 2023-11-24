@@ -51,12 +51,15 @@ const useSignInForm = ({
 
       const data = await response.text();
 
-      if (data === "EMAIL_NOT_FOUND  이메일은 존재하지 않습니다.") {
+      const emailNotFound = "EMAIL_NOT_FOUND";
+      const invalidPassword = "INVALID_PASSWORD";
+
+      if (data.includes(emailNotFound)) {
         alert("가입되지 않은 이메일입니다.");
         return;
       }
 
-      if (data === "INVALID_PASSWORD 패스워드를 잘못 입력했습니다.") {
+      if (data.includes(invalidPassword)) {
         alert("잘못된 비밀번호입니다.");
         return;
       }

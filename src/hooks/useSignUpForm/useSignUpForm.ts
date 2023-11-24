@@ -73,8 +73,10 @@ const useSignUpForm = ({
 
       const data = await response.text();
 
-      if (data === "EMAIL_DUPLICATED test@naver.com 이메일은 사용중입니다.") {
-        alert("아이디가 중복되었습니다.");
+      const duplictedEmail = "EMAIL_DUPLICATE";
+
+      if (data.includes(duplictedEmail)) {
+        alert("이메일이 중복되었습니다.");
         return;
       }
 
