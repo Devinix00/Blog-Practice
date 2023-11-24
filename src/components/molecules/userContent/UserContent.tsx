@@ -15,22 +15,26 @@ function UserContent({ content, checked, onChange }: IProps): JSX.Element {
 
   return (
     <>
-      <Link href="/postPage/[postId]" as={dynamicPath}>
-        <div className={styles.container}>
-          <div className={styles.checkboxContainer}>
-            <Checkbox checked={checked} onChange={onChange} />
-          </div>
-          <div className={styles.contentContainer}>
-            <div className={styles.title}>{content.title}</div>
-            <div className={styles.reactionAndDateContainer}>
-              <Reaction>
-                <DeleteIcon className={styles.deleteButton} />
-              </Reaction>
-              <div className={styles.date}>{content.date}</div>
-            </div>
+      <div className={styles.container}>
+        <div className={styles.checkboxContainer}>
+          <Checkbox checked={checked} onChange={onChange} />
+        </div>
+        <div className={styles.contentContainer}>
+          <Link
+            href="/postPage/[postId]"
+            as={dynamicPath}
+            className={styles.title}
+          >
+            {content.title}
+          </Link>
+          <div className={styles.reactionAndDateContainer}>
+            <Reaction>
+              <DeleteIcon className={styles.deleteButton} />
+            </Reaction>
+            <div className={styles.date}>{content.date}</div>
           </div>
         </div>
-      </Link>
+      </div>
     </>
   );
 }
