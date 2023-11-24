@@ -64,6 +64,7 @@ const useSignUpForm = ({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            nickName: inputValues.nickName,
             email: inputValues.email,
             password: inputValues.password,
           }),
