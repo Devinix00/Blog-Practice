@@ -4,8 +4,8 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 
 interface IProps {
-  inputValues: ICommonValues;
-  setInputValues: Dispatch<SetStateAction<ICommonValues>>;
+  inputValues: ICommonAuthValues;
+  setInputValues: Dispatch<SetStateAction<ICommonAuthValues>>;
 }
 
 interface IUseSignUpForm {
@@ -40,7 +40,11 @@ const useSignUpForm = ({
       return;
     }
 
-    alert("회원가입 하시겠습니까?");
+    if (window.confirm("회원가입 하시겠습니까?")) {
+    } else {
+      alert("취소합니다.");
+      return;
+    }
 
     try {
       const userData = {

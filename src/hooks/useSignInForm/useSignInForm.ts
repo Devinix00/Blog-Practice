@@ -4,8 +4,8 @@ import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 
 interface IProps {
-  inputValues: ICommonValues;
-  setInputValues: Dispatch<SetStateAction<ICommonValues>>;
+  inputValues: ICommonAuthValues;
+  setInputValues: Dispatch<SetStateAction<ICommonAuthValues>>;
 }
 
 interface IUseSignInForm {

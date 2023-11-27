@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface IProps {
-  inputValues: ICommonValues;
-  setInputValues: Dispatch<SetStateAction<ICommonValues>>;
+  inputValues: ICommonAuthValues;
+  setInputValues: Dispatch<SetStateAction<ICommonAuthValues>>;
 }
 
 interface IUseOnChange {

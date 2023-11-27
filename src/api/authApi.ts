@@ -1,11 +1,5 @@
-interface IInputValues {
-  nickName?: string;
-  email: string;
-  password: string;
-}
-
 async function authApi(
-  userData: IInputValues,
+  userData: ICommonAuthValues,
   apiUrl: string
 ): Promise<{ response: Response; data: string }> {
   const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + apiUrl, {

@@ -12,7 +12,7 @@ interface IPaginationProps {
   setIsCheckedAll?: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-interface ICommonValues {
+interface ICommonAuthValues {
   email: string;
   password: string;
   nickName?: string;
