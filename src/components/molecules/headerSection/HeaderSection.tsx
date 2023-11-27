@@ -7,14 +7,15 @@ import { usePathname, useRouter } from "next/navigation";
 import PostLink from "../postLink/PostLink";
 import Link from "next/link";
 import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
-import useRenderHeader from "@/hooks/useRenderHeader/useRenderHeader";
+import useSignOut from "@/hooks/useSignOut/useSignOut";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
   const router = useRouter();
   const excludedPaths = ["/userPage", "/createPostPage"];
-  const { accessToken, handleSignOut } = useRenderHeader();
+  const { handleSignOut } = useSignOut();
 
+  const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
     const protectedRoutes = ["/userPage", "/createPostPage", "/updateUserPage"];
     if (protectedRoutes.includes(pathname)) {

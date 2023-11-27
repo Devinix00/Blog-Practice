@@ -2,6 +2,8 @@ import authApi from "@/api/authApi";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
+import useIsLoggedInStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
+import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 
 interface IProps {
   inputValues: ICommonAuthValues;
@@ -18,6 +20,8 @@ const useSignInForm = ({
   setInputValues,
 }: IProps): IUseSignInForm => {
   const router = useRouter();
+  const { setLoggedInTrue } = useIsLoggedInStore();
+  const { setUserId } = useUserIdStore();
 
   const { onChange } = useOnChange({ inputValues, setInputValues });
 
@@ -50,8 +54,13 @@ const useSignInForm = ({
 
       if (response.ok) {
         setInputValues({ email: "", password: "" });
-        const accessToken = data;
+        const jsonData = JSON.parse(data);
+        const { accessToken } = jsonData;
         localStorage.setItem("accessToken", accessToken);
+        console.log("response: ", response);
+        console.log("data: ", jsonData);
+        setUserId(jsonData.userId);
+        setLoggedInTrue();
         router.push("/");
         return data;
       } else {
