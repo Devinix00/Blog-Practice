@@ -1,4 +1,4 @@
-import useIsLoggedInStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
+import useIsLoggedInStore from "@/stores/useIsLoggedInStore/useIsLoggedInStore";
 import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 import { useRouter } from "next/navigation";
 

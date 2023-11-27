@@ -2,8 +2,8 @@ import authApi from "@/api/authApi";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
-import useIsLoggedInStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
+import useIsLoggedInStore from "@/stores/useIsLoggedInStore/useIsLoggedInStore";
 
 interface IProps {
   inputValues: ICommonAuthValues;
