@@ -12,8 +12,9 @@ interface IPaginationProps {
   setIsCheckedAll?: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-interface ISignUpForm {
-  id: string;
+interface ICommonValues {
+  email: string;
   password: string;
-  createdAt: string;
+  nickName?: string;
+  confirmPassword?: string;
 }

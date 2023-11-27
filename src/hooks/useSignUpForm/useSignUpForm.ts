@@ -1,16 +1,11 @@
+import authApi from "@/api/authApi";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import useOnChange from "../useOnChange/useOnChange";
 
 interface IProps {
-  inputValues: IInputValues;
-  setInputValues: Dispatch<SetStateAction<IInputValues>>;
-}
-
-interface IInputValues {
-  nickName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
+  inputValues: ICommonValues;
+  setInputValues: Dispatch<SetStateAction<ICommonValues>>;
 }
 
 interface IUseSignUpForm {
@@ -25,15 +20,7 @@ const useSignUpForm = ({
 }: IProps): IUseSignUpForm => {
   const [confirmMessage, setConfirmMessage] = useState<string>("");
   const router = useRouter();
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
-
-    setInputValues({
-      ...inputValues,
-      [name]: value,
-    });
-  };
+  const { onChange } = useOnChange({ inputValues, setInputValues });
 
   useEffect(() => {
     if (inputValues.password && inputValues.confirmPassword) {
@@ -56,24 +43,24 @@ const useSignUpForm = ({
     alert("회원가입 하시겠습니까?");
 
     try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_API_BASE_URL + "/user/join",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            nickName: inputValues.nickName,
-            email: inputValues.email,
-            password: inputValues.password,
-          }),
-        }
-      );
+      const userData = {
+        nickName: inputValues.nickName,
+        email: inputValues.email,
+        password: inputValues.password,
+      };
 
-      const data = await response.text();
+      const signUpApiUrl = "/user/join";
 
+      const { response, data }: { response: Response; data: string } =
+        await authApi(userData, signUpApiUrl);
+
+      const duplictedNickName = "NICKNAME_DUPLICATED";
       const duplictedEmail = "EMAIL_DUPLICATE";
+
+      if (data.includes(duplictedNickName)) {
+        alert("닉네임이 중복되었습니다.");
+        return;
+      }
 
       if (data.includes(duplictedEmail)) {
         alert("이메일이 중복되었습니다.");

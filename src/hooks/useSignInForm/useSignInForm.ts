@@ -1,14 +1,11 @@
+import authApi from "@/api/authApi";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
+import useOnChange from "../useOnChange/useOnChange";
 
 interface IProps {
-  inputValues: IInputValues;
-  setInputValues: Dispatch<SetStateAction<IInputValues>>;
-}
-
-interface IInputValues {
-  email: string;
-  password: string;
+  inputValues: ICommonValues;
+  setInputValues: Dispatch<SetStateAction<ICommonValues>>;
 }
 
 interface IUseSignInForm {
@@ -22,34 +19,21 @@ const useSignInForm = ({
 }: IProps): IUseSignInForm => {
   const router = useRouter();
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
-
-    setInputValues({
-      ...inputValues,
-      [name]: value,
-    });
-  };
+  const { onChange } = useOnChange({ inputValues, setInputValues });
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_API_BASE_URL + "/user/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: inputValues.email,
-            password: inputValues.password,
-          }),
-        }
-      );
+      const userData = {
+        email: inputValues.email,
+        password: inputValues.password,
+      };
 
-      const data = await response.text();
+      const signInApiUrl = "/user/login";
+
+      const { response, data }: { response: Response; data: string } =
+        await authApi(userData, signInApiUrl);
 
       const emailNotFound = "EMAIL_NOT_FOUND";
       const invalidPassword = "INVALID_PASSWORD";
