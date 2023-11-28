@@ -6,17 +6,11 @@ import SignInputGroup from "@/components/molecules/signInputGroup/SignInputGroup
 import { useState } from "react";
 import useSignInForm from "@/hooks/useSignInForm/useSignInForm";
 
-interface IInputValues {
-  email: string;
-  password: string;
-}
-
 function SignInForm(): JSX.Element {
-  const [inputValues, setInputValues] = useState<IInputValues>({
+  const [inputValues, setInputValues] = useState<ISignInValues>({
     email: "",
     password: "",
   });
-
   const { handleSignIn, onChange } = useSignInForm({
     inputValues,
     setInputValues,

@@ -9,15 +9,8 @@ import ConfirmMessage from "@/components/atoms/confrimMessage/ConfrimMessage";
 import UserImage from "@/components/atoms/userImage/UserImage";
 import FileInput from "@/components/molecules/fileInput/FileInput";
 
-interface IInputValues {
-  nickName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
 function SignUpForm(): JSX.Element {
-  const [inputValues, setInputValues] = useState<IInputValues>({
+  const [inputValues, setInputValues] = useState<ISignUpValues>({
     nickName: "",
     email: "",
     password: "",

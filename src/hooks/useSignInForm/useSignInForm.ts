@@ -1,4 +1,4 @@
-import authApi from "@/api/authApi";
+import authApi from "@/api/auth/authApi";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
@@ -6,8 +6,8 @@ import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 import useIsLoggedInStore from "@/stores/useIsLoggedInStore/useIsLoggedInStore";
 
 interface IProps {
-  inputValues: ICommonAuthValues;
-  setInputValues: Dispatch<SetStateAction<ICommonAuthValues>>;
+  inputValues: ISignInValues;
+  setInputValues: Dispatch<SetStateAction<ISignInValues>>;
 }
 
 interface IUseSignInForm {
@@ -15,15 +15,15 @@ interface IUseSignInForm {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const useSignInForm = ({
+function useSignInForm({
   inputValues,
   setInputValues,
-}: IProps): IUseSignInForm => {
+}: IProps): IUseSignInForm {
   const router = useRouter();
   const { setLoggedInTrue } = useIsLoggedInStore();
   const { setUserId } = useUserIdStore();
 
-  const { onChange } = useOnChange({ inputValues, setInputValues });
+  const { onChange } = useOnChange<ISignInValues>({ setInputValues });
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,8 +36,10 @@ const useSignInForm = ({
 
       const signInApiUrl = "/user/login";
 
-      const { response, data }: { response: Response; data: string } =
-        await authApi(userData, signInApiUrl);
+      const { response, data } = await authApi<ISignInValues>(
+        userData,
+        signInApiUrl
+      );
 
       const emailNotFound = "EMAIL_NOT_FOUND";
       const invalidPassword = "INVALID_PASSWORD";
@@ -53,7 +55,10 @@ const useSignInForm = ({
       }
 
       if (response.ok) {
-        setInputValues({ email: "", password: "" });
+        setInputValues(() => ({
+          email: "",
+          password: "",
+        }));
         const jsonData = JSON.parse(data);
         const { accessToken } = jsonData;
         localStorage.setItem("accessToken", accessToken);
@@ -75,6 +80,6 @@ const useSignInForm = ({
     handleSignIn,
     onChange,
   };
-};
+}
 
 export default useSignInForm;

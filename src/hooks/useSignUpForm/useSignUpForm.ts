@@ -1,11 +1,11 @@
-import authApi from "@/api/authApi";
+import authApi from "@/api/auth/authApi";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 
 interface IProps {
-  inputValues: ICommonAuthValues;
-  setInputValues: Dispatch<SetStateAction<ICommonAuthValues>>;
+  inputValues: ISignUpValues;
+  setInputValues: Dispatch<SetStateAction<ISignUpValues>>;
 }
 
 interface IUseSignUpForm {
@@ -14,13 +14,13 @@ interface IUseSignUpForm {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const useSignUpForm = ({
+function useSignUpForm({
   inputValues,
   setInputValues,
-}: IProps): IUseSignUpForm => {
+}: IProps): IUseSignUpForm {
   const [confirmMessage, setConfirmMessage] = useState<string>("");
   const router = useRouter();
-  const { onChange } = useOnChange({ inputValues, setInputValues });
+  const { onChange } = useOnChange<ISignUpValues>({ setInputValues });
 
   useEffect(() => {
     if (inputValues.password && inputValues.confirmPassword) {
@@ -55,8 +55,10 @@ const useSignUpForm = ({
 
       const signUpApiUrl = "/user/join";
 
-      const { response, data }: { response: Response; data: string } =
-        await authApi(userData, signUpApiUrl);
+      const { response, data } = await authApi<ISignUpValues>(
+        userData,
+        signUpApiUrl
+      );
 
       const duplictedNickName = "NICKNAME_DUPLICATED";
       const duplictedEmail = "EMAIL_DUPLICATE";
@@ -73,12 +75,12 @@ const useSignUpForm = ({
 
       if (response.ok) {
         alert("회원가입이 완료되었습니다.");
-        setInputValues({
+        setInputValues(() => ({
           nickName: "",
           email: "",
           password: "",
           confirmPassword: "",
-        });
+        }));
         router.push("/signInPage");
         return data;
       } else {
@@ -94,6 +96,6 @@ const useSignUpForm = ({
     handleSignUp,
     onChange,
   };
-};
+}
 
 export default useSignUpForm;

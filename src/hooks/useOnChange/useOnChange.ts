@@ -1,23 +1,27 @@
 import { Dispatch, SetStateAction } from "react";
 
-interface IProps {
-  inputValues: ICommonAuthValues;
-  setInputValues: Dispatch<SetStateAction<ICommonAuthValues>>;
+interface IProps<T> {
+  setInputValues: Dispatch<SetStateAction<T>>;
 }
 
 interface IUseOnChange {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
-function useOnChange({ inputValues, setInputValues }: IProps): IUseOnChange {
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+function useOnChange<T>({ setInputValues }: IProps<T>): IUseOnChange {
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     const { name, value } = e.target;
 
-    setInputValues({
+    setInputValues((inputValues) => ({
       ...inputValues,
       [name]: value,
-    });
+    }));
   };
+
   return { onChange };
 }
 

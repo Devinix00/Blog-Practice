@@ -1,7 +1,4 @@
-async function authApi(
-  userData: ICommonAuthValues,
-  apiUrl: string
-): Promise<{ response: Response; data: string }> {
+async function authApi<T>(userData: T, apiUrl: string) {
   const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + apiUrl, {
     method: "POST",
     headers: {
