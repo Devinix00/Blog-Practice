@@ -9,9 +9,9 @@ interface IUseSignOut {
 function useSignOut(): IUseSignOut {
   const router = useRouter();
   const { setUserId } = useUserIdStore();
-  const clearUserIdStorage = useUserIdStore.persist.clearStorage;
+  const clearUserIdStorage = useUserIdStore.persist?.clearStorage;
   const { setLoggedInFalse } = useIsLoggedinStore();
-  const clearIsLoggedInStorage = useIsLoggedinStore.persist.clearStorage;
+  const clearIsLoggedInStorage = useIsLoggedinStore.persist?.clearStorage;
 
   const handleSignOut = (): void => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
