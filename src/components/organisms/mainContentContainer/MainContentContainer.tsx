@@ -4,15 +4,15 @@ import MainContent from "@/components/molecules/mainContent/MainContent";
 import Reaction from "@/components/molecules/reaction/Reaction";
 
 interface IProps {
-  content: IContent;
+  post: IPost;
 }
 
-function MainContentContainer({ content }: IProps): JSX.Element {
+function MainContentContainer({ post }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <ContentInfoContainer content={content} />
-        <MainContent content={content} />
+        <ContentInfoContainer post={post} />
+        <MainContent post={post} />
         <Reaction />
       </div>
     </>

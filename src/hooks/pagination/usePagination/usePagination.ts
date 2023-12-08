@@ -8,20 +8,23 @@ interface IUsePagination {
   handleClick: (event: React.MouseEvent, number: number) => void;
   goToFirstPage: (event: React.MouseEvent) => void;
   goToLastPage: (event: React.MouseEvent) => void;
-  totalContents: number;
+  totalContents: number | undefined;
 }
 
 function usePagination({
   currentPage,
   setCurrentPage,
   setIsCheckedAll,
+  totalContents,
 }: IPaginationProps): IUsePagination {
-  const { handlePaginate, totalContents, contentsPerPage } = useDivideContent({
+  const { handlePaginate, contentsPerPage } = useDivideContent({
     currentPage,
     setCurrentPage,
   });
   const pageNumbers: number[] = [];
-  const maxPageNum = Math.ceil(totalContents / contentsPerPage);
+  const maxPageNum = totalContents
+    ? Math.ceil(totalContents / contentsPerPage)
+    : 0;
 
   for (let i = 1; i <= maxPageNum; i++) {
     pageNumbers.push(i);

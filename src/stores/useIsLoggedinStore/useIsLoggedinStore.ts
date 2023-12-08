@@ -1,14 +1,14 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface IUseIsLoggedInStore {
+interface IUseIsLoggedinStore {
   isLoggedIn: boolean;
   setLoggedInTrue: () => void;
   setLoggedInFalse: () => void;
 }
 
-const useIsLoggedInStore = create(
-  persist<IUseIsLoggedInStore>(
+const useIsLoggedinStore = create(
+  persist<IUseIsLoggedinStore>(
     (set, _get) => ({
       isLoggedIn: false,
       setLoggedInTrue: () => set(() => ({ isLoggedIn: true })),
@@ -20,4 +20,4 @@ const useIsLoggedInStore = create(
   )
 );
 
-export default useIsLoggedInStore;
+export default useIsLoggedinStore;

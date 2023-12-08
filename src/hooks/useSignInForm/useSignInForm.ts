@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
-import useIsLoggedInStore from "@/stores/useIsLoggedInStore/useIsLoggedInStore";
+import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 
 interface IProps {
   inputValues: ISignInValues;
@@ -20,7 +20,7 @@ function useSignInForm({
   setInputValues,
 }: IProps): IUseSignInForm {
   const router = useRouter();
-  const { setLoggedInTrue } = useIsLoggedInStore();
+  const { setLoggedInTrue } = useIsLoggedinStore();
   const { setUserId } = useUserIdStore();
 
   const { onChange } = useOnChange<ISignInValues>({ setInputValues });
@@ -62,8 +62,6 @@ function useSignInForm({
         const jsonData = JSON.parse(data);
         const { accessToken } = jsonData;
         localStorage.setItem("accessToken", accessToken);
-        console.log("response: ", response);
-        console.log("data: ", jsonData);
         setUserId(jsonData.userId);
         setLoggedInTrue();
         router.push("/");

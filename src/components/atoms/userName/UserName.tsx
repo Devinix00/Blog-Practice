@@ -1,18 +1,18 @@
 import styles from "./UserName.module.scss";
 
 interface IProps {
-  content: IContent;
+  post: IPost;
   type?: string;
 }
 
-function UserName({ content, type }: IProps): JSX.Element {
+function UserName({ post, type }: IProps): JSX.Element {
   const userNameClass = `${styles.userName} ${
     type === "updateUserPage" ? styles.updateUser : null
   }`;
 
   return (
     <>
-      <div className={userNameClass}>{content.userName}</div>
+      <div className={userNameClass}>{post.userId}</div>
     </>
   );
 }

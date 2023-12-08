@@ -6,23 +6,32 @@ import styles from "./HomeMain.module.scss";
 import Pagination from "@/components/organisms/pagination/Pagination";
 import useDivideContent from "@/hooks/pagination/useDivideContent/useDivideContent";
 
-function HomeMain(): JSX.Element {
+interface IProps {
+  posts: IPost[];
+}
+
+function HomeMain({ posts }: IProps): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const contentsPerPage = 3;
   const { currentContents } = useDivideContent({
     contentsPerPage,
     currentPage,
     setCurrentPage,
+    posts,
   });
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.latestContentText}>최신 글</div>
-        {currentContents?.map((content: IContent) => (
-          <ContentContainer key={content.id} content={content} />
+        {currentContents?.map((post: IPost) => (
+          <ContentContainer key={post.id} post={post} />
         ))}
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalContents={posts.length}
+        />
       </div>
     </>
   );

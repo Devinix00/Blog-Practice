@@ -1,15 +1,8 @@
-interface IContent {
-  id: number;
-  userName: string;
-  title: string;
-  date: string;
-  content: string;
-}
-
 interface IPaginationProps {
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   setIsCheckedAll?: React.Dispatch<React.SetStateAction<number[]>>;
+  totalContents?: number;
 }
 
 interface ISignUpValues {
@@ -29,4 +22,14 @@ interface ICreatePostValues {
   title: string;
   content: string;
   mainImg?: string;
+}
+
+interface IPost {
+  content: string;
+  createdAt: string;
+  id: number;
+  mainImg: string;
+  title: string;
+  updatedAt: string;
+  userId: number;
 }

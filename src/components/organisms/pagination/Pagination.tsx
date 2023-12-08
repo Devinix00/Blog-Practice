@@ -8,6 +8,7 @@ function Pagination({
   currentPage,
   setCurrentPage,
   setIsCheckedAll,
+  totalContents,
 }: IPaginationProps) {
   const {
     handleClick,
@@ -15,7 +16,12 @@ function Pagination({
     goToLastPage,
     visiblePageNumbers,
     maxPageNum,
-  } = usePagination({ currentPage, setCurrentPage, setIsCheckedAll });
+  } = usePagination({
+    currentPage,
+    setCurrentPage,
+    setIsCheckedAll,
+    totalContents,
+  });
 
   return (
     <nav className={styles.container}>

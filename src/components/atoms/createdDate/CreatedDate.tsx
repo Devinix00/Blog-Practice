@@ -1,13 +1,13 @@
 import styles from "./CreatedDate.module.scss";
 
 interface IProps {
-  content: IContent;
+  post: IPost;
 }
 
-function CreatedDate({ content }: IProps): JSX.Element {
+function CreatedDate({ post }: IProps): JSX.Element {
   return (
     <>
-      <div className={styles.createdDate}>{content.date}</div>
+      <div className={styles.createdDate}>{post.createdAt}</div>
     </>
   );
 }

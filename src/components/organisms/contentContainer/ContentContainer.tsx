@@ -3,15 +3,15 @@ import styles from "./Content.module.scss";
 import MainContentContainer from "../mainContentContainer/MainContentContainer";
 
 interface IProps {
-  content: IContent;
+  post: IPost;
 }
 
-function ContentContainer({ content }: IProps): JSX.Element {
+function ContentContainer({ post }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.mainContentContainer}>
-          <MainContentContainer content={content} />
+          <MainContentContainer post={post} />
         </div>
         <div className={styles.contentImageContainer}>
           <ContentImage />

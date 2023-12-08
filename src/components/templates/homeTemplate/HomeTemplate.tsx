@@ -1,9 +1,13 @@
 import HomeMain from "@/components/organisms/homeMain/HomeMain";
 
-function HomeTemplate(): JSX.Element {
+interface IProps {
+  posts: IPost[];
+}
+
+function HomeTemplate({ posts }: IProps): JSX.Element {
   return (
     <>
-      <HomeMain />
+      <HomeMain posts={posts} />
     </>
   );
 }

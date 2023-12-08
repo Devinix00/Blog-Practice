@@ -1,4 +1,4 @@
-import useIsLoggedInStore from "@/stores/useIsLoggedInStore/useIsLoggedInStore";
+import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 import { useRouter } from "next/navigation";
 
@@ -10,8 +10,8 @@ function useSignOut(): IUseSignOut {
   const router = useRouter();
   const { setUserId } = useUserIdStore();
   const clearUserIdStorage = useUserIdStore.persist.clearStorage;
-  const { setLoggedInFalse } = useIsLoggedInStore();
-  const clearIsLoggedInStorage = useIsLoggedInStore.persist.clearStorage;
+  const { setLoggedInFalse } = useIsLoggedinStore();
+  const clearIsLoggedInStorage = useIsLoggedinStore.persist.clearStorage;
 
   const handleSignOut = (): void => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
