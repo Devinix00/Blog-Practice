@@ -6,6 +6,7 @@ async function getPostsAllApi() {
       headers: {
         "Content-Type": "application/json",
       },
+      next: { tags: ["postsAll"] },
     }
   );
 

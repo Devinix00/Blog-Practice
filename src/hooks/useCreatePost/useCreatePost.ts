@@ -57,9 +57,11 @@ function useCreatePost({
         mainImg: inputValues.mainImg,
       };
 
-      const { response, data } = await createPostApi(userData);
+      const { responseStatus, responseStatusText, data } = await createPostApi(
+        userData
+      );
 
-      if (response.ok) {
+      if (responseStatus === 200) {
         setInputValues((inputValues) => ({
           ...inputValues,
           title: "",
@@ -68,7 +70,8 @@ function useCreatePost({
         }));
         return data;
       } else {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${responseStatus},
+        ${responseStatusText}`);
       }
     } catch (error) {
       console.error("There was an error!", error);
