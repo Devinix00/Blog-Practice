@@ -1,23 +1,26 @@
 "use client";
 
-import UserImage from "@/components/atoms/userImage/UserImage";
 import styles from "./UserMain.module.scss";
-import UserName from "@/components/atoms/userName/UserName";
 import UserContentsContainer from "../userContentsContainer/UserContentsContainer";
 import Pagination from "../pagination/Pagination";
 import { useState } from "react";
 import useDivideContent from "@/hooks/pagination/useDivideContent/useDivideContent";
 import UserImgName from "@/components/molecules/userImgName/UserImgName";
+import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
+import useGetMyPostsQuery from "@/services/userPage/queries/useUserPageQuery";
 
 function UserMain(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isCheckedAll, setIsCheckedAll] = useState<number[]>([]);
   const contentsPerPage = 6;
+  const { userId } = useUserIdStore();
+  const { posts } = useGetMyPostsQuery(userId);
 
   const { currentContents } = useDivideContent({
     contentsPerPage,
     currentPage,
     setCurrentPage,
+    posts,
   });
 
   return (

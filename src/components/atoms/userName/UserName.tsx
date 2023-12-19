@@ -12,7 +12,7 @@ function UserName({ post, type }: IProps): JSX.Element {
 
   return (
     <>
-      <div className={userNameClass}>{post.userInfoResponse.nickName}</div>
+      <div className={userNameClass}>{post?.userInfoResponse.nickName}</div>
     </>
   );
 }

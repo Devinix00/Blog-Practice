@@ -5,13 +5,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Link from "next/link";
 
 interface IProps {
-  content: IContent;
+  post: IPost;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function UserContent({ content, checked, onChange }: IProps): JSX.Element {
-  const dynamicPath = `/postPage/${content.id}`;
+function UserContent({ post, checked, onChange }: IProps): JSX.Element {
+  const dynamicPath = `/postPage/${post.id}`;
 
   return (
     <>
@@ -25,13 +25,13 @@ function UserContent({ content, checked, onChange }: IProps): JSX.Element {
             as={dynamicPath}
             className={styles.title}
           >
-            {content.title}
+            {post.title}
           </Link>
           <div className={styles.reactionAndDateContainer}>
             <Reaction>
               <DeleteIcon className={styles.deleteButton} />
             </Reaction>
-            <div className={styles.date}>{content.date}</div>
+            <div className={styles.date}>{post.createdAt}</div>
           </div>
         </div>
       </div>

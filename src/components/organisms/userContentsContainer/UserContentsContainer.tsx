@@ -41,13 +41,13 @@ function UserContentsContainer({
           <div className={styles.text}>전체 선택</div>
         </div>
         <div className={styles.userContents}>
-          {currentContents?.map((content: IPost) => (
+          {currentContents?.map((post: IPost) => (
             <UserContent
-              key={content.id}
-              content={content}
-              checked={isCheckedAll.includes(content.id) ? true : false}
+              key={post.id}
+              post={post}
+              checked={isCheckedAll.includes(post.id) ? true : false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleSingleCheck(e.target.checked, content.id)
+                handleSingleCheck(e.target.checked, post.id)
               }
             />
           ))}
