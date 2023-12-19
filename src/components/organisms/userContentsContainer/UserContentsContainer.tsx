@@ -9,7 +9,7 @@ import AllCheckbox from "@/components/atoms/allCheckbox/AllCheckbox";
 import useCheckAll from "@/hooks/useCheckAll/useCheckAll";
 
 interface IProps {
-  currentContents: IContent[];
+  currentContents: IPost[];
   isCheckedAll: number[];
   setIsCheckedAll: React.Dispatch<React.SetStateAction<number[]>>;
 }
@@ -41,7 +41,7 @@ function UserContentsContainer({
           <div className={styles.text}>전체 선택</div>
         </div>
         <div className={styles.userContents}>
-          {currentContents?.map((content: IContent) => (
+          {currentContents?.map((content: IPost) => (
             <UserContent
               key={content.id}
               content={content}

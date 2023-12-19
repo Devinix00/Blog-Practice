@@ -1,7 +1,7 @@
 interface IProps {
   isCheckedAll: number[];
   setIsCheckedAll: React.Dispatch<React.SetStateAction<number[]>>;
-  currentContents: IContent[];
+  currentContents: IPost[];
 }
 
 interface IUseCheckAll {

@@ -30,7 +30,7 @@ function HomeMain({ posts }: IProps): JSX.Element {
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
-          totalContents={posts.length}
+          totalContents={posts?.length}
         />
       </div>
     </>

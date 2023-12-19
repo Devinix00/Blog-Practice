@@ -24,12 +24,22 @@ interface ICreatePostValues {
   mainImg?: string;
 }
 
-interface IPost {
-  content: string;
-  createdAt: string;
+interface IUserInfoResponse {
   id: number;
-  mainImg: string;
-  title: string;
+  email: string;
+  nickName: string;
+  userImg: string | null;
+  createdAt: string;
   updatedAt: string;
+}
+
+interface IPost {
+  id: number;
   userId: number;
+  userInfoResponse: IUserInfoResponse;
+  title: string;
+  content: string;
+  mainImg: string | null;
+  createdAt: string;
+  updatedAt: string;
 }
