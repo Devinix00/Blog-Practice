@@ -7,21 +7,13 @@ interface IProps {
 }
 
 function UserImgName({ type }: IProps): JSX.Element {
-  const content = {
-    id: 1,
-    userName: "김범수",
-    title: "Next.Js 13",
-    date: "2023-10-30",
-    content: "",
-  };
-
   return (
     <>
       <div className={styles.userImageContainer}>
         <div className={styles.userImageAndName}>
           <UserImage type={type} />
           <div className={styles.userNameContainer}>
-            <UserName content={content} type={type} />
+            <UserName type={type} />
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
+import useUserNickNameStore from "@/stores/useUserNickNameStore/useUserNickNameStore";
 
 interface IProps {
   inputValues: ISignInValues;
@@ -22,6 +23,7 @@ function useSignInForm({
   const router = useRouter();
   const { setLoggedInTrue } = useIsLoggedinStore();
   const { setUserId } = useUserIdStore();
+  const { setUserNickName } = useUserNickNameStore();
 
   const { onChange } = useOnChange<ISignInValues>({ setInputValues });
 
@@ -63,6 +65,7 @@ function useSignInForm({
         const { accessToken } = jsonData;
         localStorage.setItem("accessToken", accessToken);
         setUserId(jsonData.userId);
+        setUserNickName(jsonData.userInfoResponse.nickName);
         setLoggedInTrue();
         router.push("/");
         return data;
