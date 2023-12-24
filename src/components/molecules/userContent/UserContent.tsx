@@ -3,6 +3,7 @@ import styles from "./UserContent.module.scss";
 import Reaction from "../reaction/Reaction";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Link from "next/link";
+import useDeletePost from "@/hooks/useDeletePost/useDeletePost";
 
 interface IProps {
   post: IPost;
@@ -12,6 +13,7 @@ interface IProps {
 
 function UserContent({ post, checked, onChange }: IProps): JSX.Element {
   const dynamicPath = `/postPage/${post.id}`;
+  const { handleDeletePost } = useDeletePost();
 
   return (
     <>
@@ -29,7 +31,10 @@ function UserContent({ post, checked, onChange }: IProps): JSX.Element {
           </Link>
           <div className={styles.reactionAndDateContainer}>
             <Reaction>
-              <DeleteIcon className={styles.deleteButton} />
+              <DeleteIcon
+                className={styles.deleteButton}
+                onClick={() => handleDeletePost(post.id)}
+              />
             </Reaction>
             <div className={styles.date}>{post.createdAt}</div>
           </div>

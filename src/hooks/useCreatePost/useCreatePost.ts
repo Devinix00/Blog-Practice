@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 import createPostApi from "@/api/createPost/createPostApi";
+import { useRouter } from "next/navigation";
 
 interface IProps {
   inputValues: ICreatePostValues;
@@ -18,6 +19,7 @@ function useCreatePost({
   inputValues,
   setInputValues,
 }: IProps): IUseCreatePost {
+  const router = useRouter();
   const { onChange } = useOnChange<ICreatePostValues>({ setInputValues });
 
   const handleCreatePost = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,6 +70,8 @@ function useCreatePost({
           content: "",
           mainImg: "",
         }));
+        router.refresh();
+        router.push("/userPage");
         return data;
       } else {
         throw new Error(`HTTP error! status: ${responseStatus},

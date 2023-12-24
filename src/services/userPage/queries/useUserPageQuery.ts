@@ -10,7 +10,7 @@ interface IUseGetMyPostsQuery {
 
 function useGetMyPostsQuery(userId: number | null): IUseGetMyPostsQuery {
   const myPostsQueryResult = useQuery({
-    queryKey: [QUERY_KEYS.MY_POSTS],
+    queryKey: QUERY_KEYS.MY_POSTS,
     queryFn: () => {
       return getMyPostsApi(userId);
     },
