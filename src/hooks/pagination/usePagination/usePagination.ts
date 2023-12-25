@@ -44,6 +44,7 @@ function usePagination({
   const [, setCurrentNumbers] = useState(updatePageNumbers(1));
 
   const visiblePageNumbers = updatePageNumbers(currentPage);
+  console.log("visiblePageNumbers:", visiblePageNumbers);
 
   const handleClick = (event: React.MouseEvent, number: number): void => {
     event.preventDefault();

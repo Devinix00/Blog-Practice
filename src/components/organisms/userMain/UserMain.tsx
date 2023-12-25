@@ -11,8 +11,8 @@ import useGetMyPostsQuery from "@/services/userPage/queries/useUserPageQuery";
 
 function UserMain(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [isCheckedAll, setIsCheckedAll] = useState<number[]>([]);
   const contentsPerPage = 6;
+  const [isCheckedAll, setIsCheckedAll] = useState<number[]>([]);
   const { userId } = useUserIdStore();
   const { posts } = useGetMyPostsQuery(userId);
 
@@ -38,6 +38,7 @@ function UserMain(): JSX.Element {
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
+        totalContents={posts?.length}
         setIsCheckedAll={setIsCheckedAll}
       />
     </>
