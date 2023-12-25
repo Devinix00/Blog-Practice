@@ -9,6 +9,7 @@ import Link from "next/link";
 import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
 import useSignOut from "@/hooks/useSignOut/useSignOut";
 import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
+import { useEffect, useState } from "react";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
@@ -17,12 +18,18 @@ function HeaderSection(): JSX.Element {
   const { handleSignOut } = useSignOut();
   const { isLoggedIn } = useIsLoggedinStore();
 
-  if (!isLoggedIn) {
-    const protectedRoutes = ["/userPage", "/createPostPage", "/updateUserPage"];
-    if (protectedRoutes.includes(pathname)) {
-      router.replace("/");
+  useEffect(() => {
+    if (!isLoggedIn) {
+      const protectedRoutes = [
+        "/userPage",
+        "/createPostPage",
+        "/updateUserPage",
+      ];
+      if (protectedRoutes.includes(pathname)) {
+        router.replace("/");
+      }
     }
-  }
+  }, [isLoggedIn, pathname]);
 
   return (
     <>
