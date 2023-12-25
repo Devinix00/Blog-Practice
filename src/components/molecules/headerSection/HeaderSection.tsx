@@ -15,11 +15,19 @@ function HeaderSection(): JSX.Element {
   const excludedPaths = ["/userPage", "/createPostPage"];
   const { handleSignOut } = useSignOut();
 
-  const accessToken = localStorage.getItem("accessToken");
-  if (!accessToken) {
-    const protectedRoutes = ["/userPage", "/createPostPage", "/updateUserPage"];
-    if (protectedRoutes.includes(pathname)) {
-      router.replace("/");
+  let accessToken;
+  if (typeof window !== "undefined") {
+    accessToken = localStorage.getItem("accessToken");
+
+    if (!accessToken) {
+      const protectedRoutes = [
+        "/userPage",
+        "/createPostPage",
+        "/updateUserPage",
+      ];
+      if (protectedRoutes.includes(pathname)) {
+        router.replace("/");
+      }
     }
   }
 

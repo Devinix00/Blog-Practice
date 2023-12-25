@@ -1,10 +1,14 @@
 import styles from "./PostContent.module.scss";
 
-function PostContent(): JSX.Element {
+interface IProps {
+  post: IPost;
+}
+
+function PostContent({ post }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.content}></div>
+        <div className={styles.content}>{post.content}</div>
       </div>
     </>
   );

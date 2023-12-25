@@ -3,12 +3,16 @@ import styles from "./PostMain.module.scss";
 import PostContent from "@/components/molecules/postContent/PostContent";
 import PostReaction from "../postReaction/PostReaction";
 
-function PostMain(): JSX.Element {
+interface IProps {
+  post: IPost;
+}
+
+function PostMain({ post }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <PostTitle />
-        <PostContent />
+        <PostTitle post={post} />
+        <PostContent post={post}/>
         <PostReaction />
       </div>
     </>

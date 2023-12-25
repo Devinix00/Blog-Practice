@@ -13,7 +13,7 @@ function useSignOut(): IUseSignOut {
   const clearUserIdStorage = useUserIdStore.persist?.clearStorage;
   const { setLoggedInFalse } = useIsLoggedinStore();
   const clearIsLoggedInStorage = useIsLoggedinStore.persist?.clearStorage;
-  const clearUserNickNameStorage = useUserNickNameStore.persist.clearStorage;
+  const clearUserNickNameStorage = useUserNickNameStore.persist?.clearStorage;
 
   const handleSignOut = (): void => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
