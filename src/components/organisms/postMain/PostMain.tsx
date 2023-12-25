@@ -12,8 +12,8 @@ function PostMain({ post }: IProps): JSX.Element {
     <>
       <div className={styles.container}>
         <PostTitle post={post} />
-        <PostContent post={post}/>
-        <PostReaction />
+        <PostContent post={post} />
+        <PostReaction post={post} />
       </div>
     </>
   );

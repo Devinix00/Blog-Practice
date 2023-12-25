@@ -43,3 +43,10 @@ interface IPost {
   createdAt: string;
   updatedAt: string;
 }
+
+interface IComment {
+  postId: number;
+  replyId?: number;
+  userId: number | null;
+  content: string;
+}
