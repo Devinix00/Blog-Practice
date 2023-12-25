@@ -8,26 +8,19 @@ import PostLink from "../postLink/PostLink";
 import Link from "next/link";
 import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
 import useSignOut from "@/hooks/useSignOut/useSignOut";
+import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
   const router = useRouter();
   const excludedPaths = ["/userPage", "/createPostPage"];
   const { handleSignOut } = useSignOut();
+  const { isLoggedIn } = useIsLoggedinStore();
 
-  let accessToken;
-  if (typeof window !== "undefined") {
-    accessToken = localStorage.getItem("accessToken");
-
-    if (!accessToken) {
-      const protectedRoutes = [
-        "/userPage",
-        "/createPostPage",
-        "/updateUserPage",
-      ];
-      if (protectedRoutes.includes(pathname)) {
-        router.replace("/");
-      }
+  if (!isLoggedIn) {
+    const protectedRoutes = ["/userPage", "/createPostPage", "/updateUserPage"];
+    if (protectedRoutes.includes(pathname)) {
+      router.replace("/");
     }
   }
 
@@ -38,27 +31,27 @@ function HeaderSection(): JSX.Element {
           <Logo type="header" />
         </div>
         <div className={styles.userContainer}>
-          {!excludedPaths.includes(pathname) && accessToken && (
+          {!excludedPaths.includes(pathname) && isLoggedIn && (
             <PostLink props="write" type="header" />
           )}
-          {!accessToken && (
+          {!isLoggedIn && (
             <Link href="signUpPage" className={styles.signUpLink}>
               회원가입
             </Link>
           )}
-          {accessToken && pathname === "/userPage" && (
+          {isLoggedIn && pathname === "/userPage" && (
             <Link href="/updateUserPage" className={styles.updateUserLink}>
               회원 수정
             </Link>
           )}
-          {!accessToken && <SignInSignOutButton type="Sign In" />}
-          {accessToken && (
+          {!isLoggedIn && <SignInSignOutButton type="Sign In" />}
+          {isLoggedIn && (
             <SignInSignOutButton
               type="Sign Out"
               onClick={() => handleSignOut()}
             />
           )}
-          {accessToken && pathname !== "/userPage" && <UserButton />}
+          {isLoggedIn && pathname !== "/userPage" && <UserButton />}
         </div>
       </div>
     </>

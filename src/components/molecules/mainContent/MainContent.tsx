@@ -11,8 +11,12 @@ function MainContent({ post }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <Link href="/postPage/[postId]" as={dynamicPath}>
-          <div className={styles.title}>{post.title}</div>
+        <Link
+          href="/postPage/[postId]"
+          as={dynamicPath}
+          className={styles.title}
+        >
+          {post.title}
         </Link>
         <div className={styles.content}>{post.content}</div>
       </div>
