@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import useOnChange from "../useOnChange/useOnChange";
 import addCommentApi from "@/api/addComment/addCommentApi";
 import { useRouter } from "next/navigation";
+import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 
 interface IProps {
   postId: number;
@@ -27,6 +28,7 @@ function useAddComment({
 }: IProps): IReturn {
   const { onChange } = useOnChange<{ content: string }>({ setInputValues });
   const router = useRouter();
+  const { isLoggedIn } = useIsLoggedinStore();
 
   const handleSubmit = async (
     e:
@@ -46,6 +48,17 @@ function useAddComment({
         userId: userId,
         content: inputValues.content,
       };
+
+      if (!isLoggedIn) {
+        if (window.confirm("로그인이 필요합니다.")) {
+          alert("로그인 페이지로 이동합니다.");
+          router.push("/signInPage");
+          return;
+        } else {
+          alert("취소합니다.");
+          return;
+        }
+      }
 
       if (window.confirm("댓글을 작성하시겠습니까?")) {
         alert("댓글이 작성되었습니다.");
