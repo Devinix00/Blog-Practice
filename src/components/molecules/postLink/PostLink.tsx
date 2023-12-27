@@ -15,6 +15,7 @@ function PostLink({ props, type }: IProps): JSX.Element {
   } else if (type === "user") {
     postLinkClass = styles.userContainer;
   } 
+
   return (
     <>
       <div className={postLinkClass}>

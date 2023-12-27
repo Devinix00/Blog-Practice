@@ -18,6 +18,27 @@
     padding-bottom: 10px;
   }
 
+  .nickName {
+    padding-bottom: 5px;
+    font-size: 12px;
+
+    @include respond-above("sm") {
+      font-size: 13px;
+    }
+    @include respond-above("md") {
+      padding-bottom: 6px;
+      font-size: 14px;
+    }
+    @include respond-above("lg") {
+      padding-bottom: 8px;
+      font-size: 15px;
+    }
+    @include respond-above("xl") {
+      padding-bottom: 10px;
+      font-size: 16px;
+    }
+  }
+
   .title {
     width: 90%;
     font-family: Inria Sans;

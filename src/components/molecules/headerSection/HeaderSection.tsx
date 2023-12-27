@@ -9,7 +9,7 @@ import Link from "next/link";
 import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
 import useSignOut from "@/hooks/useSignOut/useSignOut";
 import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function HeaderSection(): JSX.Element {
   const pathname = usePathname();
