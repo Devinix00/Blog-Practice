@@ -10,7 +10,7 @@ function SignInSignOutButton({ type, onClick }: IProps): JSX.Element {
   const typeCheckRendering = () => {
     if (type === "Sign In") {
       return (
-        <Link href="signInPage" className={styles.link}>
+        <Link href="/signInPage" className={styles.link}>
           {type}
         </Link>
       );

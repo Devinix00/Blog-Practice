@@ -2,12 +2,13 @@ import PostMain from "@/components/organisms/postMain/PostMain";
 
 interface IProps {
   post: IPost;
+  comments: IPost[];
 }
 
-function PostTemplate({ post }: IProps): JSX.Element {
+function PostTemplate({ post, comments }: IProps): JSX.Element {
   return (
     <>
-      <PostMain post={post} />
+      <PostMain post={post} comments={comments} />
     </>
   );
 }

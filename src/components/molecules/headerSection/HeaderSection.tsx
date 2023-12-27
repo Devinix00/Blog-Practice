@@ -43,7 +43,7 @@ function HeaderSection(): JSX.Element {
               <PostLink props="write" type="header" />
             )}
             {!isLoggedIn && (
-              <Link href="signUpPage" className={styles.signUpLink}>
+              <Link href="/signUpPage" className={styles.signUpLink}>
                 회원가입
               </Link>
             )}

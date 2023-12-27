@@ -14,6 +14,7 @@ function UserImage({ type }: IProps): JSX.Element {
     updateUserPage: styles.updateUserImage,
     signUpPage: styles.signUpPageImage,
     header: styles.headerImage,
+    postPageComment: styles.postPageCommentImage,
   };
 
   const imageClass = imageClassMap[type];
