@@ -1,6 +1,3 @@
-// "use server";
-import { revalidatePath, revalidateTag } from "next/cache";
-
 async function createPostApi(userData: ICreatePostValues) {
   const accessToken = localStorage.getItem("accessToken");
   const response = await fetch(
@@ -14,9 +11,6 @@ async function createPostApi(userData: ICreatePostValues) {
       body: JSON.stringify(userData),
     }
   );
-
-  // revalidateTag("postsAll");
-  // revalidatePath("/createPostPage");
 
   let responseStatus;
   let responseStatusText;
