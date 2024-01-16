@@ -4,7 +4,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 async function createPostApi(userData: ICreatePostValues) {
   const accessToken = localStorage.getItem("accessToken");
   const response = await fetch(
-    process.env.NEXT_PUBLIC_API_BASE_URL + "/posts/post/add",
+    process.env.NEXT_PUBLIC_API_BASE_URL + "/posts/add",
     {
       method: "POST",
       headers: {

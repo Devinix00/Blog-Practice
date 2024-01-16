@@ -1,7 +1,7 @@
 async function addCommentApi(userData: IComment) {
   const accessToken = localStorage.getItem("accessToken");
   const response = await fetch(
-    process.env.NEXT_PUBLIC_API_BASE_URL + "/replies/post/add",
+    process.env.NEXT_PUBLIC_API_BASE_URL + "/replies/add",
     {
       method: "POST",
       headers: {

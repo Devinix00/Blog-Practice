@@ -1,6 +1,6 @@
 async function getCommentsApi(postId: string) {
   const response = await fetch(
-    process.env.NEXT_PUBLIC_API_BASE_URL + `/replies/post/${postId}`,
+    process.env.NEXT_PUBLIC_API_BASE_URL + `/replies?postId=${postId}`,
     {
       method: "GET",
       headers: {

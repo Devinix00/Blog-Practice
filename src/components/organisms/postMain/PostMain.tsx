@@ -1,5 +1,3 @@
-"use clinet";
-
 import PostTitle from "@/components/molecules/postTitle/PostTitle";
 import styles from "./PostMain.module.scss";
 import PostContent from "@/components/molecules/postContent/PostContent";
@@ -12,7 +10,7 @@ interface IProps {
 }
 
 function PostMain({ post, comments }: IProps): JSX.Element {
-  const numberOfComments = comments.length;
+  const numberOfComments = post?.replyResponses.length;
 
   return (
     <>

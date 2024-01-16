@@ -15,7 +15,7 @@ const useIsLoggedinStore = create(
       setLoggedInFalse: () => set(() => ({ isLoggedIn: false })),
     }),
     {
-      name: "isLoggedInStore",
+      name: "isLoggedInStorage",
     }
   )
 );

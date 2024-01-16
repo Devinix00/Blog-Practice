@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 
 interface IProps {
-  postId: number;
+  postId: string;
   userId: number | null;
   inputValues: { content: string };
   setInputValues: Dispatch<SetStateAction<{ content: string }>>;
+  setIsSubmitting: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IReturn {
@@ -25,6 +26,7 @@ function useAddComment({
   userId,
   inputValues,
   setInputValues,
+  setIsSubmitting,
 }: IProps): IReturn {
   const { onChange } = useOnChange<{ content: string }>({ setInputValues });
   const router = useRouter();
@@ -38,17 +40,6 @@ function useAddComment({
     e.preventDefault();
 
     try {
-      if (inputValues.content === "") {
-        alert("내용을 입력해주세요.");
-        return;
-      }
-
-      const userData: IComment = {
-        postId: postId,
-        userId: userId,
-        content: inputValues.content,
-      };
-
       if (!isLoggedIn) {
         if (window.confirm("로그인이 필요합니다.")) {
           alert("로그인 페이지로 이동합니다.");
@@ -60,12 +51,25 @@ function useAddComment({
         }
       }
 
+      if (inputValues.content === "") {
+        alert("내용을 입력해주세요.");
+        return;
+      }
+
+      const userData: IComment = {
+        postId: postId,
+        userId: userId,
+        content: inputValues.content,
+      };
+
       if (window.confirm("댓글을 작성하시겠습니까?")) {
         alert("댓글이 작성되었습니다.");
       } else {
         alert("취소합니다.");
         return;
       }
+
+      setIsSubmitting(true);
 
       const { data, response } = await addCommentApi(userData);
 
@@ -78,6 +82,8 @@ function useAddComment({
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
   return { handleSubmit, onChange };

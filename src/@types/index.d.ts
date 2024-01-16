@@ -34,9 +34,10 @@ interface IUserInfoResponse {
 }
 
 interface IPost {
-  id: number;
+  id: string;
   userId: number;
   userInfoResponse: IUserInfoResponse;
+  replyResponses: IReplyResponses[];
   title: string;
   content: string;
   mainImg: string | null;
@@ -45,8 +46,18 @@ interface IPost {
 }
 
 interface IComment {
-  postId: number;
-  replyId?: number;
+  postId: string;
+  originReplyId?: number;
   userId: number | null;
   content: string;
+}
+
+interface IReplyResponses {
+  content: string;
+  createdAt: string;
+  id: number;
+  originReplyId: number;
+  postId: number;
+  updatedAt: string;
+  userInfoResponse: IUserInfoResponse;
 }

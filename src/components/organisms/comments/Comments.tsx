@@ -6,8 +6,6 @@ interface IProps {
 }
 
 function Comments({ comments }: IProps): JSX.Element {
-  console.log("comments:", comments);
-
   return (
     <>
       <div className={styles.container}>

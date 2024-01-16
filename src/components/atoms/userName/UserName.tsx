@@ -1,3 +1,5 @@
+"use client";
+
 import useUserNickNameStore from "@/stores/useUserNickNameStore/useUserNickNameStore";
 import styles from "./UserName.module.scss";
 

@@ -4,13 +4,14 @@ interface IProps {
       | React.FormEvent<HTMLFormElement>
       | React.KeyboardEvent<HTMLTextAreaElement>
   ) => void;
+  isSubmitting: boolean;
 }
 
-function usePressEnterFetch({ handleSubmit }: IProps) {
+function usePressEnterFetch({ handleSubmit, isSubmitting }: IProps) {
   const handlePressEnterFetch = (
     e: React.KeyboardEvent<HTMLTextAreaElement>
   ) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && !isSubmitting) {
       e.preventDefault();
       handleSubmit(e);
     }

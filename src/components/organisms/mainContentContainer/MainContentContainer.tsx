@@ -13,7 +13,7 @@ function MainContentContainer({ post }: IProps): JSX.Element {
       <div className={styles.container}>
         <ContentInfoContainer post={post} />
         <MainContent post={post} />
-        <Reaction />
+        <Reaction post={post} />
       </div>
     </>
   );

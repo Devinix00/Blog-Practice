@@ -10,6 +10,7 @@ interface IProps {
 }
 
 function CommentForm({ post }: IProps): JSX.Element {
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const postId = post.id;
   const { userId } = useUserIdStore();
   const [inputValues, setInputValues] = useState({ content: "" });
@@ -18,9 +19,14 @@ function CommentForm({ post }: IProps): JSX.Element {
     userId,
     inputValues,
     setInputValues,
+    setIsSubmitting,
   });
 
-  const { handlePressEnterFetch } = usePressEnterFetch({ handleSubmit });
+  const { handlePressEnterFetch } = usePressEnterFetch({
+    handleSubmit,
+    isSubmitting,
+  });
+
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.container}>

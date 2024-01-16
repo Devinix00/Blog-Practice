@@ -1,7 +1,7 @@
 async function deletePostApi(postId: number) {
   const accessToken = localStorage.getItem("accessToken");
   const response = await fetch(
-    process.env.NEXT_PUBLIC_API_BASE_URL + `/posts/post/${postId}/delete`,
+    process.env.NEXT_PUBLIC_API_BASE_URL + `/posts/delete?postIds=${postId}`,
     {
       method: "DELETE",
       headers: {

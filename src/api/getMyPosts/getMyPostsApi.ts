@@ -1,6 +1,6 @@
 async function getMyPostsApi(userId: number | null) {
   const response = await fetch(
-    process.env.NEXT_PUBLIC_API_BASE_URL + `/posts/user/${userId}`,
+    process.env.NEXT_PUBLIC_API_BASE_URL + `/posts/getpostby?userId=${userId}`,
     {
       method: "GET",
       headers: {
