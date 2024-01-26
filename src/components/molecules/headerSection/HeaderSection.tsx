@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import PostLink from "../postLink/PostLink";
 import Link from "next/link";
 import SignInSignOutButton from "@/components/atoms/signInSignOutButton/SignInSignOutButton";
-import useSignOut from "@/hooks/useSignOut/useSignOut";
+import useSignOut from "@/hooks/useSignInForm/useSignOut/useSignOut";
 import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 import { useEffect, useState } from "react";
 import PulseLoader from "react-spinners/PulseLoader";

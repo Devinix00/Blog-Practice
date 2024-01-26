@@ -16,7 +16,7 @@ function PostReaction({ post, numberOfComments }: IProps): JSX.Element {
       <div className={styles.container}>
         <div className={styles.likeContainer}>
           <div className={styles.like}>
-            <Like type="postPage" />
+            <Like type="postPage" post={post} />
           </div>
           <div className={styles.numberOfComments}>
             {numberOfComments}개의 댓글

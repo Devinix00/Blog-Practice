@@ -5,11 +5,11 @@ import Header from "@/components/organisms/header/Header";
 import PostTemplate from "@/components/templates/postTemplate/PostTemplate";
 
 async function PostPage({ params }: { params: { id: string } }) {
+  const commentsData = await getCommentsApi(params.id);
+  const comments = commentsData.data;
+
   const data = await getIndividualPost(params.id);
   const post = data.data;
-
-  const commentsData = await getCommentsApi(post.id);
-  const comments = commentsData.data;
 
   return (
     <div className="body">

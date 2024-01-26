@@ -11,7 +11,7 @@ function Reaction({ post, children }: IProps): JSX.Element {
   return (
     <>
       <div className={styles.container}>
-        <Like />
+        <Like post={post} />
         <Comment post={post} />
         {children}
       </div>

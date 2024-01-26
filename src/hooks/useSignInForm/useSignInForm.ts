@@ -63,7 +63,6 @@ function useSignInForm({
         }));
         const jsonData = JSON.parse(data);
         const { accessToken } = jsonData;
-        console.log(jsonData);
         localStorage.setItem("accessToken", accessToken);
         setUserId(jsonData.userId);
         setUserNickName(jsonData.userInfoResponse.nickName);
