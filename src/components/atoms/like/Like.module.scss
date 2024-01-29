@@ -23,6 +23,10 @@
   &:hover {
     filter: sepia(1) hue-rotate(-40deg) saturate(10);
   }
+
+  &.liked {
+    filter: sepia(1) hue-rotate(-40deg) saturate(10);
+  }
 }
 
 .number {

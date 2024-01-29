@@ -1,11 +1,19 @@
 import likeApi from "@/api/like/likeApi";
 import { useRouter } from "next/navigation";
+import { Dispatch, SetStateAction } from "react";
 
 interface IUseLike {
   handleClickLike: (postId: string | undefined) => void;
+  handleLike: () => void;
 }
 
-function useLike(): IUseLike {
+interface IProps {
+  setIsLiked: Dispatch<SetStateAction<boolean>>;
+  isLiked: boolean;
+  post: IPost;
+}
+
+function useLike({ setIsLiked, isLiked, post }: IProps): IUseLike {
   const router = useRouter();
   const handleClickLike = async (postId: string | undefined) => {
     try {
@@ -23,7 +31,16 @@ function useLike(): IUseLike {
     }
   };
 
-  return { handleClickLike };
+  const handleLike = () => {
+    try {
+      setIsLiked(!isLiked);
+      handleClickLike(post?.id);
+    } catch (error) {
+      setIsLiked(isLiked);
+    }
+  };
+
+  return { handleClickLike, handleLike };
 }
 
 export default useLike;

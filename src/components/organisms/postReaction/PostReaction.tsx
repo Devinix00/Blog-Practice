@@ -10,8 +10,6 @@ interface IProps {
 }
 
 function PostReaction({ post }: IProps): JSX.Element {
-  console.log("post:", post);
-
   return (
     <>
       <div className={styles.container}>
