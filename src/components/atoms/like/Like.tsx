@@ -16,7 +16,7 @@ function Like({ type, post }: IProps): JSX.Element {
   const { userId } = useUserIdStore();
 
   useEffect(() => {
-    setIsLiked(post.likeResponses.some((like) => like.userId === userId));
+    setIsLiked(post?.likeResponses.some((like) => like.userId === userId));
   }, [post, userId]);
 
   const likeImageClass = `${styles.likeImage} ${isLiked ? styles.liked : null}`;
@@ -30,7 +30,7 @@ function Like({ type, post }: IProps): JSX.Element {
         className={likeImageClass}
       />
       {type !== "postPage" && (
-        <div className={styles.number}>{post.likeResponses.length}</div>
+        <div className={styles.number}>{post?.likeResponses.length}</div>
       )}
     </>
   );
