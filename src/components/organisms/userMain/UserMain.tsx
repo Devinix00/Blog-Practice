@@ -36,6 +36,7 @@ function UserMain(): JSX.Element {
         </div>
       </div>
       <Pagination
+        contentsPerPage={contentsPerPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         totalContents={posts?.length}

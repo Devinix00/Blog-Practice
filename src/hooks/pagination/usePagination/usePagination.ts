@@ -12,12 +12,14 @@ interface IUsePagination {
 }
 
 function usePagination({
+  contentsPerPage,
   currentPage,
   setCurrentPage,
   setIsCheckedAll,
   totalContents,
 }: IPaginationProps): IUsePagination {
-  const { handlePaginate, contentsPerPage } = useDivideContent({
+  const { handlePaginate } = useDivideContent({
+    contentsPerPage,
     currentPage,
     setCurrentPage,
   });

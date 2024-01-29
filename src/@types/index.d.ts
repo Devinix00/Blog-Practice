@@ -1,4 +1,5 @@
 interface IPaginationProps {
+  contentsPerPage: number;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   setIsCheckedAll?: React.Dispatch<React.SetStateAction<number[]>>;

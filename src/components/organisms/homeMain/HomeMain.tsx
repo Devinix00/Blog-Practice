@@ -28,6 +28,7 @@ function HomeMain({ posts }: IProps): JSX.Element {
           <ContentContainer key={post.id} post={post} />
         ))}
         <Pagination
+          contentsPerPage={contentsPerPage}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalContents={posts?.length}

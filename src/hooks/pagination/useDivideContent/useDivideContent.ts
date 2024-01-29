@@ -7,14 +7,14 @@ interface IUseDivideContent {
 }
 
 interface IProps {
-  contentsPerPage?: number;
+  contentsPerPage: number;
   currentPage: number;
   setCurrentPage: (pageNumber: number) => void;
   posts?: IPost[];
 }
 
 function useDivideContent({
-  contentsPerPage = 3,
+  contentsPerPage,
   currentPage,
   setCurrentPage,
   posts,

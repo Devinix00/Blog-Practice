@@ -5,6 +5,7 @@ import PageLink from "@/components/atoms/pageLink/PageLink";
 import PageList from "@/components/molecules/pageList/PageList";
 
 function Pagination({
+  contentsPerPage,
   currentPage,
   setCurrentPage,
   setIsCheckedAll,
@@ -17,6 +18,7 @@ function Pagination({
     visiblePageNumbers,
     maxPageNum,
   } = usePagination({
+    contentsPerPage,
     currentPage,
     setCurrentPage,
     setIsCheckedAll,
