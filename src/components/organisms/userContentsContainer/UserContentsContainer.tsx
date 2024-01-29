@@ -45,9 +45,9 @@ function UserContentsContainer({
             <UserContent
               key={post.id}
               post={post}
-              checked={isCheckedAll.includes(post.id) ? true : false}
+              checked={isCheckedAll.includes(Number(post.id)) ? true : false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleSingleCheck(e.target.checked, post.id)
+                handleSingleCheck(e.target.checked, Number(post.id))
               }
             />
           ))}
