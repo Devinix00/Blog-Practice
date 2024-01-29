@@ -20,7 +20,9 @@ function Like({ type, post }: IProps): JSX.Element {
         }}
         className={styles.likeImage}
       />
-      {type !== "postPage" && <div className={styles.number}>0</div>}
+      {type !== "postPage" && (
+        <div className={styles.number}>{post.likeResponses.length}</div>
+      )}
     </>
   );
 }

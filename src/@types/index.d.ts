@@ -38,6 +38,7 @@ interface IPost {
   userId: number;
   userInfoResponse: IUserInfoResponse;
   replyResponses: IReplyResponses[];
+  likeResponses: ILikeResponses[];
   title: string;
   content: string;
   mainImg: string | null;
@@ -60,4 +61,12 @@ interface IReplyResponses {
   postId: number;
   updatedAt: string;
   userInfoResponse: IUserInfoResponse;
+}
+
+interface ILikeResponses {
+  createdAt: string;
+  id: number;
+  postId: number;
+  userId: number;
+  userInfoResponses: IUserInfoResponse;
 }

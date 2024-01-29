@@ -7,19 +7,21 @@ import CommentForm from "../commentForm/CommentForm";
 
 interface IProps {
   post: IPost;
-  numberOfComments: number;
 }
 
-function PostReaction({ post, numberOfComments }: IProps): JSX.Element {
+function PostReaction({ post }: IProps): JSX.Element {
+  console.log("post:", post);
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.likeContainer}>
           <div className={styles.like}>
+            <p className={styles.numberOfLikes}>{post.likeResponses.length}</p>
             <Like type="postPage" post={post} />
           </div>
           <div className={styles.numberOfComments}>
-            {numberOfComments}개의 댓글
+            {post.replyResponses.length}개의 댓글
           </div>
         </div>
         <div className={styles.commentContainer}>

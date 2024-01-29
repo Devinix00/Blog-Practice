@@ -10,14 +10,12 @@ interface IProps {
 }
 
 function PostMain({ post, comments }: IProps): JSX.Element {
-  const numberOfComments = post?.replyResponses.length;
-
   return (
     <>
       <div className={styles.container}>
         <PostTitle post={post} />
         <PostContent post={post} />
-        <PostReaction post={post} numberOfComments={numberOfComments} />
+        <PostReaction post={post} />
         <Comments comments={comments} />
       </div>
     </>

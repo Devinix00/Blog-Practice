@@ -21,9 +21,18 @@
     }
 
     .like {
+      display: flex;
+      align-items: center;
+      gap: 4px;
       position: absolute;
       right: 0;
       bottom: 0;
+
+      .numberOfLikes {
+        @include respond-above("lg") {
+          font-size: 20px;
+        }
+      }
     }
     .numberOfComments {
       position: absolute;
