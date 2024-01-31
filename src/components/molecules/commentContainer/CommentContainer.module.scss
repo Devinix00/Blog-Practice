@@ -41,15 +41,32 @@
     @include commonFontSize();
   }
 
-  .replies {
-    @include commonFontSize();
-    color: #5ec2a4;
-    font-weight: 600;
-    width: fit-content;
-    cursor: pointer;
+  .repliesContainer {
+    display: flex;
+    justify-content: space-between;
 
-    &:hover {
-      text-decoration: underline;
+    .replies {
+      @include commonFontSize();
+      color: #5ec2a4;
+      font-weight: 600;
+      width: fit-content;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .deleteComment {
+      @include commonFontSize();
+      color: #c25e5e;
+      font-weight: 600;
+      width: fit-content;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
