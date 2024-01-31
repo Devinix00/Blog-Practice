@@ -3,7 +3,7 @@ import styles from "./Reaction.module.scss";
 import Comment from "@/components/atoms/comment/Comment";
 
 interface IProps {
-  post: IPost;
+  post?: IPost;
   children?: React.ReactNode;
 }
 

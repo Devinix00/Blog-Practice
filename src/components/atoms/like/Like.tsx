@@ -6,7 +6,7 @@ import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 import { useEffect, useState } from "react";
 
 interface IProps {
-  post: IPost;
+  post?: IPost;
   type?: "postPage";
 }
 
@@ -16,6 +16,7 @@ function Like({ type, post }: IProps): JSX.Element {
   const { userId } = useUserIdStore();
 
   useEffect(() => {
+    if (!post) return;
     setIsLiked(post?.likeResponses.some((like) => like.userId === userId));
   }, [post, userId]);
 

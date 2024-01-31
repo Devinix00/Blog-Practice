@@ -10,7 +10,7 @@ interface IUseLike {
 interface IProps {
   setIsLiked: Dispatch<SetStateAction<boolean>>;
   isLiked: boolean;
-  post: IPost;
+  post?: IPost;
 }
 
 function useLike({ setIsLiked, isLiked, post }: IProps): IUseLike {
@@ -34,7 +34,7 @@ function useLike({ setIsLiked, isLiked, post }: IProps): IUseLike {
   const handleLike = () => {
     try {
       setIsLiked(!isLiked);
-      handleClickLike(post?.id);
+      handleClickLike(String(post?.id));
     } catch (error) {
       setIsLiked(isLiked);
     }

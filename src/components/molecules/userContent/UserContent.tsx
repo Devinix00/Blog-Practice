@@ -4,16 +4,25 @@ import Reaction from "../reaction/Reaction";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Link from "next/link";
 import useDeletePost from "@/hooks/useDeletePost/useDeletePost";
+import { Dispatch, SetStateAction } from "react";
 
 interface IProps {
   post: IPost;
+  posts: IPost[] | undefined;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setPosts: Dispatch<SetStateAction<IPost[] | undefined>>;
 }
 
-function UserContent({ post, checked, onChange }: IProps): JSX.Element {
+function UserContent({
+  posts,
+  post,
+  setPosts,
+  checked,
+  onChange,
+}: IProps): JSX.Element {
   const dynamicPath = `/postPage/${post.id}`;
-  const { handleDeletePost } = useDeletePost();
+  const { handleDeletePost } = useDeletePost({ posts, setPosts });
 
   return (
     <>

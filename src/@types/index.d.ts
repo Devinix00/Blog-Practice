@@ -35,7 +35,7 @@ interface IUserInfoResponse {
 }
 
 interface IPost {
-  id: string;
+  id: number;
   userId: number;
   userInfoResponse: IUserInfoResponse;
   replyResponses: IReplyResponses[];

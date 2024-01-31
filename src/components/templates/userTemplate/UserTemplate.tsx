@@ -1,16 +1,16 @@
-"use client";
-
 import UserMain from "@/components/organisms/userMain/UserMain";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Dispatch, SetStateAction } from "react";
 
-function UserTemplate(): JSX.Element {
-  const queryClient = new QueryClient();
+interface IProps {
+  posts: IPost[] | undefined;
+  setPosts: Dispatch<SetStateAction<IPost[] | undefined>>;
+}
+
+function UserTemplate({ posts ,setPosts}: IProps): JSX.Element {
   return (
-    <QueryClientProvider client={queryClient}>
-      <UserMain />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <>
+      <UserMain posts={posts} setPosts={setPosts}/>
+    </>
   );
 }
 

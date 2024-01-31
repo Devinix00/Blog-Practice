@@ -3,7 +3,7 @@ import commentImage from "./image/375d22919c43603090b3cf0c0d11c462.png";
 import Image from "next/image";
 
 interface IProps {
-  post: IPost;
+  post?: IPost;
 }
 
 function Comment({ post }: IProps): JSX.Element {

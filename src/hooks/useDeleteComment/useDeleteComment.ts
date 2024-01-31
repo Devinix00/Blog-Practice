@@ -16,7 +16,6 @@ function useDeleteComment(): IUseDeleteComment {
         return;
       }
       const { response } = await deleteCommentApi(replyId);
-      console.log("response:", response);
 
       if (response.ok) {
         router.refresh();

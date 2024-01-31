@@ -6,6 +6,7 @@ async function getMyPostsApi(userId: number | null) {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: "no-store",
     }
   );
 

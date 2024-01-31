@@ -7,17 +7,22 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AllCheckbox from "@/components/atoms/allCheckbox/AllCheckbox";
 import useCheckAll from "@/hooks/useCheckAll/useCheckAll";
+import { Dispatch, SetStateAction } from "react";
 
 interface IProps {
+  posts: IPost[] | undefined;
   currentContents: IPost[];
   isCheckedAll: number[];
   setIsCheckedAll: React.Dispatch<React.SetStateAction<number[]>>;
+  setPosts: Dispatch<SetStateAction<IPost[] | undefined>>;
 }
 
 function UserContentsContainer({
+  posts,
   isCheckedAll,
   setIsCheckedAll,
   currentContents,
+  setPosts,
 }: IProps): JSX.Element {
   const { handleAllCheck, handleSingleCheck } = useCheckAll({
     isCheckedAll,
@@ -44,7 +49,9 @@ function UserContentsContainer({
           {currentContents?.map((post: IPost) => (
             <UserContent
               key={post.id}
+              posts={posts}
               post={post}
+              setPosts={setPosts}
               checked={isCheckedAll.includes(Number(post.id)) ? true : false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleSingleCheck(e.target.checked, Number(post.id))

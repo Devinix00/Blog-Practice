@@ -11,7 +11,7 @@ async function deletePostApi(postId: number) {
     }
   );
   const data = response.text();
-  return { data };
+  return { data, response };
 }
 
 export default deletePostApi;
