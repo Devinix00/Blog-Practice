@@ -10,15 +10,12 @@ interface IProps {
 
 function UserName({ post, type }: IProps): JSX.Element {
   const { userNickName } = useUserNickNameStore();
-  const userNameClass = `${styles.userName} ${
-    type === "updateUserPage" ? styles.updateUser : null
-  }`;
 
   return (
     <>
-      <div className={userNameClass}>{post?.userInfoResponse.nickName}</div>
+      <div className={styles.userName}>{post?.userInfoResponse.nickName}</div>
       {type === "userPage" ? (
-        <div className={userNameClass}>{userNickName}</div>
+        <div className={styles.userName}>{userNickName}</div>
       ) : null}
     </>
   );

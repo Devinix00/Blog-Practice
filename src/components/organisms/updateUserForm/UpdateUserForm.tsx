@@ -21,14 +21,14 @@ function UpdateUserForm(): JSX.Element {
     confirmPassword: "",
   });
 
-  const { confirmMessage, onChange } = useUpdateUserForm({
+  const { confirmMessage, onChange, handleSubmit } = useUpdateUserForm({
     inputValues,
     setInputValues,
   });
 
   return (
     <>
-      <form className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.container}>
         <FileInput />
         <UpdateInputGroup
           labelText="닉네임 수정"

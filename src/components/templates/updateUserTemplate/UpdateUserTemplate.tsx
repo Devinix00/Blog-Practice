@@ -1,22 +1,19 @@
+"use client";
+
 import UserImage from "@/components/atoms/userImage/UserImage";
 import styles from "./UpdateUserTemplate.module.scss";
 import UpdateUserForm from "@/components/organisms/updateUserForm/UpdateUserForm";
-import UserName from "@/components/atoms/userName/UserName";
+import useUserNickNameStore from "@/stores/useUserNickNameStore/useUserNickNameStore";
 
 function UpdateUserTemplate(): JSX.Element {
-  const content = {
-    id: 1,
-    userName: "김범수",
-    title: "Next.Js 13",
-    date: "2023-10-30",
-    content: "",
-  };
+  const { userNickName } = useUserNickNameStore();
+  
   return (
     <>
       <div className={styles.container}>
         <div className={styles.userImageContainer}>
           <UserImage type="updateUserPage" />
-          <UserName content={content} type="updateUserPage" />
+          <p className={styles.userNickName}>{userNickName}</p>
         </div>
         <div className={styles.updateUserFormContainer}>
           <UpdateUserForm />
