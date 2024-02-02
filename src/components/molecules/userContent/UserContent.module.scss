@@ -41,9 +41,10 @@
   }
 
   .contentContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     max-width: 100%;
     flex: 1;
 
@@ -90,46 +91,42 @@
       }
     }
 
-    .reactionAndDateContainer {
-      display: flex;
-      flex-direction: column;
-      font-family: Inria Sans;
+    .deleteButton {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
       color: #757575;
+      cursor: pointer;
+      background-color: #e6e6e6;
+      border-radius: 5px;
 
-      .deleteButton {
-        position: absolute;
-        right: 0;
-        font-size: 24px;
-        cursor: pointer;
-        background-color: #e6e6e6;
-        border-radius: 5px;
-
-        @include respond-above("md") {
-          font-size: 28px;
-        }
-        @include respond-above("lg") {
-          font-size: 32px;
-        }
-        @include respond-above("xl") {
-          font-size: 36px;
-        }
-        &:hover {
-          background-color: #d7d7d7;
-        }
+      @include respond-above("md") {
+        font-size: 28px;
       }
+      @include respond-above("lg") {
+        font-size: 32px;
+      }
+      @include respond-above("xl") {
+        font-size: 36px;
+      }
+      &:hover {
+        background-color: #d7d7d7;
+      }
+    }
+    
+    .date {
+      font-size: 12px;
 
-      .date {
-        font-size: 12px;
-
-        @include respond-above("md") {
-          font-size: 13.5px;
-        }
-        @include respond-above("lg") {
-          font-size: 15px;
-        }
-        @include respond-above("xl") {
-          font-size: 16px;
-        }
+      @include respond-above("md") {
+        font-size: 13.5px;
+      }
+      @include respond-above("lg") {
+        font-size: 15px;
+      }
+      @include respond-above("xl") {
+        font-size: 16px;
       }
     }
   }

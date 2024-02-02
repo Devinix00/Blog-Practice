@@ -38,15 +38,11 @@ function UserContent({
           >
             {post.title}
           </Link>
-          <div className={styles.reactionAndDateContainer}>
-            <Reaction>
-              <DeleteIcon
-                className={styles.deleteButton}
-                onClick={() => handleDeletePost(post.id)}
-              />
-            </Reaction>
-            <div className={styles.date}>{post.createdAt}</div>
-          </div>
+          <DeleteIcon
+            className={styles.deleteButton}
+            onClick={() => handleDeletePost(post.id)}
+          />
+          <div className={styles.date}>{post.createdAt}</div>
         </div>
       </div>
     </>

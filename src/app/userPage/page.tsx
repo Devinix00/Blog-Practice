@@ -24,13 +24,11 @@ function UserPage(): JSX.Element {
     fetchData();
   }, []);
 
-  if (!posts) return <div>Loading...</div>;
-
   return (
     <div className="body">
       <div className="mainContainer">
         <Header />
-        <UserTemplate posts={posts} setPosts={setPosts}/>
+        <UserTemplate posts={posts} setPosts={setPosts} />
       </div>
       <Footer />
     </div>
