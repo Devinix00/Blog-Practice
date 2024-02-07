@@ -8,6 +8,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AllCheckbox from "@/components/atoms/allCheckbox/AllCheckbox";
 import useCheckAll from "@/hooks/useCheckAll/useCheckAll";
 import { Dispatch, SetStateAction } from "react";
+import useDeletePost from "@/hooks/useDeletePost/useDeletePost";
 
 interface IProps {
   posts: IPost[] | undefined;
@@ -29,6 +30,8 @@ function UserContentsContainer({
     setIsCheckedAll,
     currentContents,
   });
+
+  const { handleDeletePost } = useDeletePost({ posts, setPosts });
 
   return (
     <>
@@ -63,6 +66,9 @@ function UserContentsContainer({
           variant="contained"
           startIcon={<DeleteIcon />}
           className={styles.deleteButton}
+          onClick={() => {
+            handleDeletePost(isCheckedAll);
+          }}
         >
           삭제
         </Button>

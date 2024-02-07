@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
 
 interface IReturn {
-  handleDeletePost: (postId: number) => void;
+  handleDeletePost: (postId: number | number[]) => void;
 }
 
 interface IProps {
@@ -14,7 +14,7 @@ interface IProps {
 function useDeletePost({ posts, setPosts }: IProps): IReturn {
   const router = useRouter();
 
-  const handleDeletePost = async (postId: number) => {
+  const handleDeletePost = async (postId: number | number[]) => {
     if (window.confirm("삭제 하시겠습니까?")) {
       alert("삭제 되었습니다.");
     } else {
@@ -25,9 +25,13 @@ function useDeletePost({ posts, setPosts }: IProps): IReturn {
     const { response } = await deletePostApi(postId);
 
     if (response.ok) {
-      const filteredPosts = posts?.filter((post) => post.id !== postId);
-      setPosts(filteredPosts);
-      router.refresh();
+      if (typeof postId === "number") {
+        const filteredPosts = posts?.filter((post) => post.id !== postId);
+        setPosts(filteredPosts);
+        router.refresh();
+      } else if (Array.isArray(postId)) {
+        location.reload();
+      }
     }
   };
 
