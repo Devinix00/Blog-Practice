@@ -11,7 +11,7 @@ interface IProps {
 
 function CommentForm({ post }: IProps): JSX.Element {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const postId = post.id;
+  const postId = post.id.toString();
   const { userId } = useUserIdStore();
   const [inputValues, setInputValues] = useState({ content: "" });
   const { handleSubmit, onChange } = useAddComment({
