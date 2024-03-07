@@ -8,6 +8,13 @@ CURD 연습용 게시판 프로젝트
 5. 좋아요
 6. 댓글 기능
 
+## Tech Stacks
+1. Next.Js App router
+2. Typescript
+3. SCSS
+4. MUI
+5. Zustand
+
 ## 홈 페이지
 <img src="./public/images/KakaoTalk_20231124_160756648.png">
 <img src="./public/images/KakaoTalk_20231124_160956932.png">
