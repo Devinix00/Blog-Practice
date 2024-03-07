@@ -5,6 +5,7 @@ import useOnChange from "../useOnChange/useOnChange";
 import useUserIdStore from "@/stores/useUserIdStore/useUserIdStore";
 import useIsLoggedinStore from "@/stores/useIsLoggedinStore/useIsLoggedinStore";
 import useUserNickNameStore from "@/stores/useUserNickNameStore/useUserNickNameStore";
+import tokenManager from "@/utils/tokenManager";
 
 interface IProps {
   inputValues: ISignInValues;
@@ -63,7 +64,9 @@ function useSignInForm({
         }));
         const jsonData = JSON.parse(data);
         const { accessToken } = jsonData;
-        localStorage.setItem("accessToken", accessToken);
+        
+        tokenManager.setToken(accessToken);
+
         setUserId(jsonData.userId);
         setUserNickName(jsonData.userInfoResponse.nickName);
         setLoggedInTrue();

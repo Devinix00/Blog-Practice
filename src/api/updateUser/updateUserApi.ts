@@ -1,3 +1,5 @@
+import tokenManager from "@/utils/tokenManager";
+
 interface IInputValues {
   nickName: string;
   newPw: string;
@@ -5,7 +7,7 @@ interface IInputValues {
 }
 
 async function updateUserApi(userData: IInputValues) {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = tokenManager.getToken();
   const response = await fetch(
     process.env.NEXT_PUBLIC_API_BASE_URL + "/user/update",
     {
